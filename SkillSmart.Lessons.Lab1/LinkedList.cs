@@ -8,7 +8,6 @@ namespace AlgorithmsDataStructures
     {
         public int value;
         public Node next;
-        public Node prev;
         public Node(int _value) { value = _value; }
     }
 
@@ -25,15 +24,9 @@ namespace AlgorithmsDataStructures
 
         public void AddInTail(Node _item)
         {
-            if (_item != null) _item.prev = tail ?? head;
             if (head == null) head = _item;
-            else              tail.next = _item;
+            else tail.next = _item;
             tail = _item;
-
-            if (_item != null && _item.next != null)
-            {
-                AddInTail(_item.next);
-            }
         }
 
         public Node Find(int _value)
@@ -69,7 +62,17 @@ namespace AlgorithmsDataStructures
                 {
                     if (prev == null) head = node.next;
                     else              prev.next = node.next;
-                    if (tail == node) tail = tail.prev;
+                    
+                    if (node.next == null) tail = prev;
+                    else
+                    {
+                        while (node.next != null)
+                        {
+                            tail = node.next;
+                            node = node.next;
+                        }
+                    }
+
                     return true;
                 }
                 prev = node;
@@ -88,10 +91,10 @@ namespace AlgorithmsDataStructures
                 {
                     if (prev == null)
                     {
-                        head = node.next; 
+                        head = node.next;
                         node = head;
                         tail = node;
-                        continue; 
+                        continue;
                     }
                     else
                     {
@@ -119,7 +122,7 @@ namespace AlgorithmsDataStructures
             Node node = head;
             while (node != null)
             {
-                count ++;
+                count++;
                 node = node.next;
             }
 
@@ -156,7 +159,7 @@ namespace AlgorithmsDataStructures
                 while (l != null && r != null)
                 {
                     result.AddInTail(new Node(l.value + r.value));
-                    
+
                     l = l.next;
                     r = r.next;
                 }
