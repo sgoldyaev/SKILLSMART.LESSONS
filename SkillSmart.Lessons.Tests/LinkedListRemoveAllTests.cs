@@ -46,7 +46,6 @@ namespace SkillSmart.Lessons.Tests
             Assert.AreEqual(2, linkedList.Count());
         }
 
-
         [TestMethod]
         public void AddDoublicatedNodesInTailTest()
         {
@@ -57,6 +56,32 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(5);
 
             Assert.AreEqual(1, linkedList.Count());
+        }
+
+        [TestMethod]
+        public void AddDoublicatedNodesInTail2Test()
+        {
+            linkedList.AddInTail(new Node(25));
+            linkedList.AddInTail(new Node(5));
+            linkedList.AddInTail(new Node(5));
+
+            linkedList.RemoveAll(5);
+
+            Assert.AreEqual(1, linkedList.Count());
+        }
+
+        [TestMethod]
+        public void AddDoublicatedNodesInTail3Test()
+        {
+            linkedList.AddInTail(new Node(5));
+            linkedList.AddInTail(new Node(25));
+            linkedList.AddInTail(new Node(5));
+            linkedList.AddInTail(new Node(25));
+            linkedList.AddInTail(new Node(5));
+
+            linkedList.RemoveAll(5);
+
+            Assert.AreEqual(2, linkedList.Count());
         }
 
         [TestMethod]

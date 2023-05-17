@@ -90,12 +90,13 @@ namespace AlgorithmsDataStructures
                     {
                         head = node.next; 
                         node = head;
-                        tail = tail.prev;
                         continue; 
                     }
                     else
                     {
                         prev.next = node.next;
+                        node = node.next;
+                        continue;
                     }
                 }
                 prev = node;
