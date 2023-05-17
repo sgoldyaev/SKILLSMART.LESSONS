@@ -90,6 +90,7 @@ namespace AlgorithmsDataStructures
                     {
                         head = node.next; 
                         node = head;
+                        tail = node;
                         continue; 
                     }
                     else
@@ -99,6 +100,8 @@ namespace AlgorithmsDataStructures
                         continue;
                     }
                 }
+                tail = node;
+
                 prev = node;
                 node = node.next;
             }

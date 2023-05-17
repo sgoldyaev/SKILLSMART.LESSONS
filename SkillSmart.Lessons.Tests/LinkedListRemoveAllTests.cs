@@ -32,6 +32,8 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(5);
 
             Assert.AreEqual(0, linkedList.Count());
+            Assert.AreEqual(null, linkedList.head);
+            Assert.AreEqual(null, linkedList.tail);
         }
 
         [TestMethod]
@@ -44,6 +46,8 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(5);
 
             Assert.AreEqual(2, linkedList.Count());
+            Assert.AreEqual(15, linkedList.head.value);
+            Assert.AreEqual(25, linkedList.tail.value);
         }
 
         [TestMethod]
@@ -56,6 +60,8 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(5);
 
             Assert.AreEqual(1, linkedList.Count());
+            Assert.AreEqual(25, linkedList.head.value);
+            Assert.AreEqual(25, linkedList.tail.value);
         }
 
         [TestMethod]
@@ -68,6 +74,8 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(5);
 
             Assert.AreEqual(1, linkedList.Count());
+            Assert.AreEqual(25, linkedList.head.value);
+            Assert.AreEqual(25, linkedList.tail.value);
         }
 
         [TestMethod]
@@ -82,6 +90,8 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(5);
 
             Assert.AreEqual(2, linkedList.Count());
+            Assert.AreEqual(25, linkedList.head.value);
+            Assert.AreEqual(25, linkedList.tail.value);
         }
 
         [TestMethod]
@@ -107,6 +117,8 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(5);
 
             Assert.AreEqual(1, linkedList.Count());
+            Assert.AreEqual(15, linkedList.head.value);
+            Assert.AreEqual(15, linkedList.tail.value);
         }
 
         [TestMethod]
@@ -120,6 +132,8 @@ namespace SkillSmart.Lessons.Tests
             linkedList.RemoveAll(15);
 
             Assert.AreEqual(1, linkedList.Count());
+            Assert.AreEqual(5, linkedList.head.value);
+            Assert.AreEqual(5, linkedList.tail.value);
         }
     }
 }
