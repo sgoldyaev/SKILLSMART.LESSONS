@@ -72,6 +72,43 @@ namespace SkillSmart.Lessons.Tests
             Assert.AreEqual(n3, linkedList.tail);
         }
 
+        [TestMethod]
+        public void AddThreeNodesInTail2Test()
+        {
+            var n1 = new Node(15);
+            var n2 = new Node(5);
+            var n3 = new Node(25);
+
+            linkedList.AddInTail(n1);
+            linkedList.AddInTail(n2);
+            linkedList.AddInTail(n3);
+
+            var removed = linkedList.Remove(5);
+
+            Assert.AreEqual(true, removed);
+            Assert.AreEqual(2, linkedList.Count());
+            Assert.AreEqual(n1, linkedList.head);
+            Assert.AreEqual(n3, linkedList.tail);
+        }
+
+        [TestMethod]
+        public void AddThreeNodesInTail3Test()
+        {
+            var n1 = new Node(15);
+            var n2 = new Node(25);
+            var n3 = new Node(5);
+
+            linkedList.AddInTail(n1);
+            linkedList.AddInTail(n2);
+            linkedList.AddInTail(n3);
+
+            var removed = linkedList.Remove(5);
+
+            Assert.AreEqual(true, removed);
+            Assert.AreEqual(2, linkedList.Count());
+            Assert.AreEqual(n1, linkedList.head);
+            Assert.AreEqual(n2, linkedList.tail);
+        }
 
         [TestMethod]
         public void AddDoublicatedNodesInTailTest()
