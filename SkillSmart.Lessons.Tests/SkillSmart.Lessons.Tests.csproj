@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SKILLSMART.LESSONS\SkillSmart.Lessons.csproj" />
+    <ProjectReference Include="..\SkillSmart.Lessons.Lab1\SkillSmart.Lessons.Lab1.csproj" />
   </ItemGroup>
 
 </Project>

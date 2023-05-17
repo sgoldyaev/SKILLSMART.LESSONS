@@ -50,7 +50,6 @@ namespace AlgorithmsDataStructures
         public List<Node> FindAll(int _value)
         {
             List<Node> nodes = new List<Node>();
-            // здесь будет ваш код поиска всех узлов по заданному значению
             Node node = head;
             while (node != null)
             {
@@ -62,7 +61,6 @@ namespace AlgorithmsDataStructures
 
         public bool Remove(int _value)
         {
-            // здесь будет ваш код удаления одного узла по заданному значению
             Node prev = null;
             Node node = head;
             while (node != null)
@@ -77,12 +75,11 @@ namespace AlgorithmsDataStructures
                 prev = node;
                 node = node.next;
             }
-            return false; // если узел был удалён
+            return false;
         }
 
         public void RemoveAll(int _value)
         {
-            // здесь будет ваш код удаления всех узлов по заданному значению
             Node prev = null;
             Node node = head;
             while (node != null)
@@ -108,7 +105,6 @@ namespace AlgorithmsDataStructures
 
         public void Clear()
         {
-            // здесь будет ваш код очистки всего списка
             head = null;
             tail = null;
         }
@@ -123,15 +119,11 @@ namespace AlgorithmsDataStructures
                 node = node.next;
             }
 
-            return count; // здесь будет ваш код подсчёта количества элементов в списке
+            return count;
         }
 
         public void InsertAfter(Node _nodeAfter, Node _nodeToInsert)
         {
-            // здесь будет ваш код вставки узла после заданного
-
-            // если _nodeAfter = null , 
-            // добавьте новый элемент первым в списке 
             if (_nodeAfter == null) head = _nodeToInsert;
             else
             {
@@ -147,8 +139,26 @@ namespace AlgorithmsDataStructures
                     node = node.next;
                 }
             }
-
         }
 
+        public static LinkedList Merge(LinkedList left, LinkedList right)
+        {
+            LinkedList result = new LinkedList();
+            if (left?.Count() == right?.Count())
+            {
+                Node l = left.head;
+                Node r = right.head;
+
+                while (l != null && r != null)
+                {
+                    result.AddInTail(new Node(l.value + r.value));
+                    
+                    l = l.next;
+                    r = r.next;
+                }
+            }
+
+            return result;
+        }
     }
 }
