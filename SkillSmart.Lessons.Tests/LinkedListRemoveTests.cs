@@ -41,6 +41,19 @@ namespace SkillSmart.Lessons.Tests
         }
 
         [TestMethod]
+        public void AddSingleNodeInTailNegativeTest()
+        {
+            linkedList.AddInTail(new Node(5));
+
+            var removed = linkedList.Remove(6);
+
+            Assert.AreEqual(false, removed);
+            Assert.AreEqual(1, linkedList.Count());
+            Assert.AreEqual(5, linkedList.head.value);
+            Assert.AreEqual(5, linkedList.tail.value);
+        }
+
+        [TestMethod]
         public void AddThreeNodesInTailTest()
         {
             var n1 = new Node(5);
