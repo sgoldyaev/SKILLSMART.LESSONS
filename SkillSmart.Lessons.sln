@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSmart.Lessons.Lab1", "SkillSmart.Lessons.Lab1\SkillSmart.Lessons.Lab1.csproj", "{66C39B8F-A6F9-4319-9933-DAE16C860381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillSmart.Lessons.Tests", "SkillSmart.Lessons.Tests\SkillSmart.Lessons.Tests.csproj", "{685156A4-9623-47B3-95E5-2070B448DA3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66C39B8F-A6F9-4319-9933-DAE16C860381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C39B8F-A6F9-4319-9933-DAE16C860381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C39B8F-A6F9-4319-9933-DAE16C860381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C39B8F-A6F9-4319-9933-DAE16C860381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{685156A4-9623-47B3-95E5-2070B448DA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{685156A4-9623-47B3-95E5-2070B448DA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{685156A4-9623-47B3-95E5-2070B448DA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{685156A4-9623-47B3-95E5-2070B448DA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDE5B5D6-0828-4F14-8440-B6527AA0BE15}
+	EndGlobalSection
+EndGlobal
