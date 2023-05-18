@@ -1,7 +1,7 @@
 using AlgorithmsDataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SkillSmart.Lessons.Tests
+namespace SkillSmart.Lessons.Tests.LinkedListTests
 {
     [TestClass]
     public class LinkedListCountTests
@@ -11,33 +11,33 @@ namespace SkillSmart.Lessons.Tests
         [TestInitialize]
         public void Init() 
         {
-            linkedList = new LinkedList();
+            this.linkedList = new LinkedList();
         }
 
         [TestMethod]
         public void AddNullNodeInTailTest()
         {
-            linkedList.AddInTail(null);
+            this.linkedList.AddInTail(null);
 
-            Assert.AreEqual(0, linkedList.Count());
+            Assert.AreEqual(0, this.linkedList.Count());
         }
 
         [TestMethod]
         public void AddSingleNodeInTailTest()
         {
-            linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(5));
 
-            Assert.AreEqual(1, linkedList.Count());
+            Assert.AreEqual(1, this.linkedList.Count());
         }
 
         [TestMethod]
         public void AddThreeNodesInTailTest()
         {
-            linkedList.AddInTail(new Node(5));
-            linkedList.AddInTail(new Node(15));
-            linkedList.AddInTail(new Node(25));
+            this.linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(15));
+            this.linkedList.AddInTail(new Node(25));
 
-            Assert.AreEqual(3, linkedList.Count());
+            Assert.AreEqual(3, this.linkedList.Count());
         }
 
         [TestMethod]
@@ -46,19 +46,19 @@ namespace SkillSmart.Lessons.Tests
             var node = new Node(5);
             node.next = new Node(15);
 
-            linkedList.AddInTail(node);
+            this.linkedList.AddInTail(node);
 
-            Assert.AreEqual(2, linkedList.Count());
+            Assert.AreEqual(2, this.linkedList.Count());
         }
 
         [TestMethod]
         public void ClearSingleNodeInTailTest()
         {
-            linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(5));
 
-            linkedList.Clear();
+            this.linkedList.Clear();
 
-            Assert.AreEqual(0, linkedList.Count());
+            Assert.AreEqual(0, this.linkedList.Count());
         }
     }
 }

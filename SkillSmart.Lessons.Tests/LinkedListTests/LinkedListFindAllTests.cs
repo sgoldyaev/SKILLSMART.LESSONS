@@ -1,7 +1,7 @@
 using AlgorithmsDataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SkillSmart.Lessons.Tests
+namespace SkillSmart.Lessons.Tests.LinkedListTests
 {
     [TestClass]
     public class LinkedListFindAllTests
@@ -11,15 +11,15 @@ namespace SkillSmart.Lessons.Tests
         [TestInitialize]
         public void Init() 
         {
-            linkedList = new LinkedList();
+            this.linkedList = new LinkedList();
         }
 
         [TestMethod]
         public void AddNullNodeInTailTest()
         {
-            linkedList.AddInTail(null);
+            this.linkedList.AddInTail(null);
 
-            var found = linkedList.FindAll(5);
+            var found = this.linkedList.FindAll(5);
 
             Assert.AreEqual(0, found.Count);
         }
@@ -27,9 +27,9 @@ namespace SkillSmart.Lessons.Tests
         [TestMethod]
         public void AddSingleNodeInTailTest()
         {
-            linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(5));
 
-            var found = linkedList.FindAll(5);
+            var found = this.linkedList.FindAll(5);
 
             Assert.AreEqual(1, found.Count);
         }
@@ -37,11 +37,11 @@ namespace SkillSmart.Lessons.Tests
         [TestMethod]
         public void AddThreeNodesInTailTest()
         {
-            linkedList.AddInTail(new Node(5));
-            linkedList.AddInTail(new Node(15));
-            linkedList.AddInTail(new Node(25));
+            this.linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(15));
+            this.linkedList.AddInTail(new Node(25));
 
-            var found = linkedList.FindAll(5);
+            var found = this.linkedList.FindAll(5);
 
             Assert.AreEqual(1, found.Count);
         }
@@ -50,11 +50,11 @@ namespace SkillSmart.Lessons.Tests
         [TestMethod]
         public void AddDoublicatedNodesInTailTest()
         {
-            linkedList.AddInTail(new Node(5));
-            linkedList.AddInTail(new Node(5));
-            linkedList.AddInTail(new Node(25));
+            this.linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(25));
 
-            var found = linkedList.FindAll(5);
+            var found = this.linkedList.FindAll(5);
 
             Assert.AreEqual(2, found.Count);
         }
@@ -62,11 +62,11 @@ namespace SkillSmart.Lessons.Tests
         [TestMethod]
         public void AddDoublicatedNodesInTailNegativeTest()
         {
-            linkedList.AddInTail(new Node(5));
-            linkedList.AddInTail(new Node(5));
-            linkedList.AddInTail(new Node(25));
+            this.linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(25));
 
-            var found = linkedList.FindAll(6);
+            var found = this.linkedList.FindAll(6);
 
             Assert.AreEqual(0, found.Count);
         }
@@ -77,9 +77,9 @@ namespace SkillSmart.Lessons.Tests
             var node = new Node(5);
             node.next = new Node(15);
 
-            linkedList.AddInTail(node);
+            this.linkedList.AddInTail(node);
 
-            var found = linkedList.FindAll(5);
+            var found = this.linkedList.FindAll(5);
 
             Assert.AreEqual(1, found.Count);
         }
@@ -87,11 +87,11 @@ namespace SkillSmart.Lessons.Tests
         [TestMethod]
         public void ClearSingleNodeInTailTest()
         {
-            linkedList.AddInTail(new Node(5));
+            this.linkedList.AddInTail(new Node(5));
 
-            linkedList.Clear();
+            this.linkedList.Clear();
 
-            var found = linkedList.FindAll(5);
+            var found = this.linkedList.FindAll(5);
 
             Assert.AreEqual(0, found.Count);
         }
