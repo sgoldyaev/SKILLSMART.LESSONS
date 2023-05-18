@@ -84,5 +84,20 @@ namespace SkillSmart.Lessons.Tests
             Assert.AreEqual(null, result.head);
             Assert.AreEqual(null, result.tail);
         }
+
+        [TestMethod]
+        public void MergeNullableListTest()
+        {
+            left = null;
+
+            right.AddInTail(new Node(10));
+            right.AddInTail(new Node(20));
+
+            var result = LinkedList.Merge(left, right);
+
+            Assert.AreEqual(0, result.Count());
+            Assert.AreEqual(null, result.head);
+            Assert.AreEqual(null, result.tail);
+        }
    }
 }

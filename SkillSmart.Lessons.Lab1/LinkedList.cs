@@ -128,7 +128,8 @@ namespace AlgorithmsDataStructures
         public static LinkedList Merge(LinkedList left, LinkedList right)
         {
             LinkedList result = new LinkedList();
-            if (left?.Count() == right?.Count())
+
+            if (left?.Count() > 0 && right?.Count() > 0 && left.Count() == right.Count())
             {
                 Node l = left.head;
                 Node r = right.head;
