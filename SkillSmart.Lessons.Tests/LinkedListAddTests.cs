@@ -54,9 +54,9 @@ namespace SkillSmart.Lessons.Tests
 
             linkedList.AddInTail(node);
 
-            Assert.AreEqual(2, linkedList.Count());
+            Assert.AreEqual(1, linkedList.Count());
             Assert.AreEqual(5, linkedList.head.value);
-            Assert.AreEqual(15, linkedList.tail.value);
+            Assert.AreEqual(5, linkedList.tail.value);
         }
 
         [TestMethod]

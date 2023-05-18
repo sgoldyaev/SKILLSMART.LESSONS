@@ -30,8 +30,8 @@ namespace AlgorithmsDataStructures
             if (_item != null) _item.prev = tail;
             tail = _item;
             
-            ///  NOTE [sg]: Support nested Nodes
-            if (_item?.next != null) AddInTail(_item.next);
+            ///  NOTE [sg]: Disable nested Nodes
+            if (_item?.next != null) _item.next = null;
         }
 
         public Node Find(int _value)

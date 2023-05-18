@@ -116,9 +116,9 @@ namespace SkillSmart.Lessons.Tests
 
             linkedList.RemoveAll(5);
 
-            Assert.AreEqual(1, linkedList.Count());
-            Assert.AreEqual(15, linkedList.head.value);
-            Assert.AreEqual(15, linkedList.tail.value);
+            Assert.AreEqual(0, linkedList.Count());
+            Assert.AreEqual(null, linkedList.head);
+            Assert.AreEqual(null, linkedList.tail);
         }
 
         [TestMethod]
