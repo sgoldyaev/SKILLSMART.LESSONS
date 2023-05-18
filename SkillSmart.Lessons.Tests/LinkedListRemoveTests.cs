@@ -148,7 +148,7 @@ namespace SkillSmart.Lessons.Tests
             Assert.AreEqual(n3, linkedList.tail);
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void AddLinkedNodesInTailTest()
         {
             var n1 = new Node(5);
@@ -162,9 +162,9 @@ namespace SkillSmart.Lessons.Tests
             var removed = linkedList.Remove(5);
 
             Assert.AreEqual(true, removed);
-            Assert.AreEqual(0, linkedList.Count());
-            Assert.AreEqual(null, linkedList.head);
-            Assert.AreEqual(null, linkedList.tail);
+            Assert.AreEqual(1, linkedList.Count());
+            Assert.AreEqual(n2, linkedList.head);
+            Assert.AreEqual(n2, linkedList.tail);
         }
 
         [TestMethod]

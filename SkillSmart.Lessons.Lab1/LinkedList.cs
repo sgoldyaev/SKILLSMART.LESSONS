@@ -8,6 +8,7 @@ namespace AlgorithmsDataStructures
     {
         public int value;
         public Node next;
+        public Node prev;
         public Node(int _value) { value = _value; }
     }
 
@@ -26,7 +27,11 @@ namespace AlgorithmsDataStructures
         {
             if (head == null) head = _item;
             else tail.next = _item;
+            if (_item != null) _item.prev = tail;
             tail = _item;
+            
+            ///  NOTE [sg]: Support nested Nodes
+            if (_item?.next != null) AddInTail(_item.next);
         }
 
         public Node Find(int _value)
@@ -54,58 +59,30 @@ namespace AlgorithmsDataStructures
 
         public bool Remove(int _value)
         {
-            Node prev = null;
-            Node node = head;
-            while (node != null)
+            var found = Find(_value);
+            if (found != null)
             {
-                if (node.value == _value)
-                {
-                    if (prev == null) head = node.next;
-                    else              prev.next = node.next;
-                    
-                    if (node.next == null) tail = prev;
-                    else
-                    {
-                        while (node.next != null)
-                        {
-                            tail = node.next;
-                            node = node.next;
-                        }
-                    }
-
-                    return true;
-                }
-                prev = node;
-                node = node.next;
+                if (found.next == null) tail = found.prev;
+                else found.next.prev = found.prev;
+                if (found.prev == null) head = found.next;
+                else found.prev.next = found.next;
+                return true;
             }
             return false;
         }
 
         public void RemoveAll(int _value)
         {
-            Node prev = null;
             Node node = head;
             while (node != null)
             {
                 if (node.value == _value)
                 {
-                    if (prev == null)
-                    {
-                        head = node.next;
-                        node = head;
-                        tail = node;
-                        continue;
-                    }
-                    else
-                    {
-                        prev.next = node.next;
-                        node = node.next;
-                        continue;
-                    }
+                    if (node.next == null) tail = node.prev;
+                    else node.next.prev = node.prev;
+                    if (node.prev == null) head = node.next;
+                    else node.prev.next = node.next;
                 }
-                tail = node;
-
-                prev = node;
                 node = node.next;
             }
         }
