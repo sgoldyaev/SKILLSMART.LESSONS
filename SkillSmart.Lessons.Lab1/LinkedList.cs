@@ -31,7 +31,7 @@ namespace AlgorithmsDataStructures
             tail = _item;
             
             ///  NOTE [sg]: Disable nested Nodes
-            if (_item?.next != null) _item.next = null;
+            /// if (_item?.next != null) _item.next = null;
         }
 
         public Node Find(int _value)
