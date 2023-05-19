@@ -39,6 +39,14 @@ namespace SkillSmart.Lessons.Tests.LinkedList2Tests
             Assert.AreEqual(1, this.linkedList.Count());
             Assert.AreEqual(15, this.linkedList.head.value);
             Assert.AreEqual(15, this.linkedList.tail.value);
+
+            Assert.AreEqual(n15, this.linkedList.head);
+            Assert.AreEqual(null, this.linkedList.head.prev);
+            Assert.AreEqual(null, this.linkedList.head.next);
+
+            Assert.AreEqual(n15, this.linkedList.tail);
+            Assert.AreEqual(null, this.linkedList.tail.prev);
+            Assert.AreEqual(null, this.linkedList.tail.next);
         }
 
         [TestMethod]
@@ -54,27 +62,60 @@ namespace SkillSmart.Lessons.Tests.LinkedList2Tests
             Assert.AreEqual(2, this.linkedList.Count());
             Assert.AreEqual(5, this.linkedList.head.value);
             Assert.AreEqual(15, this.linkedList.tail.value);
+            
+            Assert.AreEqual(n5, this.linkedList.head);
+            Assert.AreEqual(null, this.linkedList.head.prev);
+            Assert.AreEqual(n15, this.linkedList.head.next);
+
+            Assert.AreEqual(n5, this.linkedList.head.next.prev);
+            Assert.AreEqual(null, this.linkedList.head.next.next);
+
+            Assert.AreEqual(n15, this.linkedList.tail);
+            Assert.AreEqual(n5, this.linkedList.tail.prev);
+            Assert.AreEqual(null, this.linkedList.tail.next);
         }
 
         [TestMethod]
         public void AddThreeNodesInTailTest()
         {
             var n5 = new Node(5);
-            var n5_2 = new Node(5);
+            var n10 = new Node(10);
             var n15 = new Node(15);
-            var n15_2 = new Node(15);
+            var n20 = new Node(20);
             var n25 = new Node(25);
 
             this.linkedList.AddInTail(n5);
-            this.linkedList.AddInTail(n5_2);
+            this.linkedList.AddInTail(n10);
             this.linkedList.AddInTail(n15);
             this.linkedList.AddInTail(n25);
 
-            this.linkedList.InsertAfter(n5, n15_2);
+            this.linkedList.InsertAfter(n5, n20);
+            
+            /// n5 -> n20 -> n10 -> n15 -> n25
 
             Assert.AreEqual(5, this.linkedList.Count());
             Assert.AreEqual(5, this.linkedList.head.value);
             Assert.AreEqual(25, this.linkedList.tail.value);
+
+            Assert.AreEqual(n5, this.linkedList.head);
+            Assert.AreEqual(null, this.linkedList.head.prev);
+            Assert.AreEqual(n20, this.linkedList.head.next);
+
+            Assert.AreEqual(n5, this.linkedList.head.next.prev);
+            Assert.AreEqual(n10, this.linkedList.head.next.next);
+
+            Assert.AreEqual(n20, this.linkedList.head.next.next.prev);
+            Assert.AreEqual(n15, this.linkedList.head.next.next.next);
+
+            Assert.AreEqual(n10, this.linkedList.head.next.next.next.prev);
+            Assert.AreEqual(n25, this.linkedList.head.next.next.next.next);
+
+            Assert.AreEqual(n15, this.linkedList.head.next.next.next.next.prev);
+            Assert.AreEqual(null, this.linkedList.head.next.next.next.next.next);
+
+            Assert.AreEqual(n25, this.linkedList.tail);
+            Assert.AreEqual(n15, this.linkedList.tail.prev);
+            Assert.AreEqual(null, this.linkedList.tail.next);
         }
 
         [TestMethod]
@@ -91,9 +132,28 @@ namespace SkillSmart.Lessons.Tests.LinkedList2Tests
 
             this.linkedList.InsertAfter(n15, n20);
 
+            /// n5 -> n15 -> n20 -> n25
+
             Assert.AreEqual(4, this.linkedList.Count());
             Assert.AreEqual(5, this.linkedList.head.value);
             Assert.AreEqual(25, this.linkedList.tail.value);
+
+            Assert.AreEqual(n5, this.linkedList.head);
+            Assert.AreEqual(null, this.linkedList.head.prev);
+            Assert.AreEqual(n15, this.linkedList.head.next);
+
+            Assert.AreEqual(n5, this.linkedList.head.next.prev);
+            Assert.AreEqual(n20, this.linkedList.head.next.next);
+
+            Assert.AreEqual(n15, this.linkedList.head.next.next.prev);
+            Assert.AreEqual(n25, this.linkedList.head.next.next.next);
+
+            Assert.AreEqual(null, this.linkedList.head.next.next.next.next);
+            Assert.AreEqual(n20, this.linkedList.head.next.next.next.prev);
+
+            Assert.AreEqual(n25, this.linkedList.tail);
+            Assert.AreEqual(n20, this.linkedList.tail.prev);
+            Assert.AreEqual(null, this.linkedList.tail.next);
         }
 
         [TestMethod]

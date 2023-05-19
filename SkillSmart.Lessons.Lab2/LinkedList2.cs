@@ -125,27 +125,20 @@ namespace AlgorithmsDataStructures
                 if (head != null) head.prev = _nodeToInsert;
                 _nodeToInsert.next = head;
                 head = _nodeToInsert;
-                
+
                 if (tail == null) tail = _nodeToInsert;
             }
             else
             {
-                Node node = head;
-                while (node != null)
-                {
-                    if (_nodeAfter == node)
-                    {
-                        _nodeToInsert.next = node.next;
-                        node.next = _nodeToInsert;
+                if (_nodeAfter.next != null)
+                    _nodeAfter.next.prev = _nodeToInsert;
 
-                        if (node == tail)
-                            tail = _nodeToInsert;
- 
-                        break;
-                    }
-                    node = node.next;
-                }
+                _nodeToInsert.next = _nodeAfter.next;
+                _nodeToInsert.prev = _nodeAfter;
+
+                _nodeAfter.next = _nodeToInsert;
             }
+            if (tail == _nodeAfter) tail = _nodeToInsert;
         }
 
         public static LinkedList2 Merge(LinkedList2 left, LinkedList2 right)
