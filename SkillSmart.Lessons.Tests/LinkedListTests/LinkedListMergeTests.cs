@@ -22,7 +22,7 @@ namespace SkillSmart.Lessons.Tests.LinkedListTests
             this.left.AddInTail(null);
             this.right.AddInTail(null);
 
-            var result = LinkedList.Merge(this.left, this.right);
+            var result = Lab1Bonus.Merge(this.left, this.right);
 
             Assert.AreEqual(0, result.Count());
         }
@@ -33,7 +33,7 @@ namespace SkillSmart.Lessons.Tests.LinkedListTests
             this.left.AddInTail(new Node(5));
             this.right.AddInTail(new Node(5));
 
-            var result = LinkedList.Merge(this.left, this.right);
+            var result = Lab1Bonus.Merge(this.left, this.right);
 
             Assert.AreEqual(1, result.Count());
             Assert.AreEqual(10, result.head.value);
@@ -46,7 +46,7 @@ namespace SkillSmart.Lessons.Tests.LinkedListTests
             this.left.AddInTail(new Node(5));
             this.right.AddInTail(new Node(10));
 
-            var result = LinkedList.Merge(this.left, this.right);
+            var result = Lab1Bonus.Merge(this.left, this.right);
 
             Assert.AreEqual(1, result.Count());
             Assert.AreEqual(15, result.head.value);
@@ -61,7 +61,7 @@ namespace SkillSmart.Lessons.Tests.LinkedListTests
             this.right.AddInTail(new Node(10));
             this.right.AddInTail(new Node(20));
 
-            var result = LinkedList.Merge(this.left, this.right);
+            var result = Lab1Bonus.Merge(this.left, this.right);
 
             Assert.AreEqual(2, result.Count());
             Assert.AreEqual(15, result.head.value);
@@ -78,7 +78,7 @@ namespace SkillSmart.Lessons.Tests.LinkedListTests
             this.right.AddInTail(new Node(10));
             this.right.AddInTail(new Node(20));
 
-            var result = LinkedList.Merge(this.left, this.right);
+            var result = Lab1Bonus.Merge(this.left, this.right);
 
             Assert.AreEqual(0, result.Count());
             Assert.AreEqual(null, result.head);
@@ -93,7 +93,7 @@ namespace SkillSmart.Lessons.Tests.LinkedListTests
             this.right.AddInTail(new Node(10));
             this.right.AddInTail(new Node(20));
 
-            var result = LinkedList.Merge(this.left, this.right);
+            var result = Lab1Bonus.Merge(this.left, this.right);
 
             Assert.AreEqual(0, result.Count());
             Assert.AreEqual(null, result.head);
