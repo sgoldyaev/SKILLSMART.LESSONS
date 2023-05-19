@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AlgorithmsDataStructures2
+namespace AlgorithmsDataStructures
 {
 
     public class Node
@@ -28,18 +28,22 @@ namespace AlgorithmsDataStructures2
             if (head == null)
             {
                 head = _item;
-                head.prev = null;
-                head.next = null;
+
+                if (_item != null)
+                {
+                    head.prev = null;
+                    head.next = null;
+                }
+            }
+            if (tail != null)
+            {
+                tail.next = _item;
             }
             if (_item != null)
             {
-                tail.next = _item;
                 _item.prev = tail;
             }
             tail = _item;
-            
-            ///  NOTE [sg]: Disable nested Nodes
-            /// if (_item?.next != null) _item.next = null;
         }
 
         public Node Find(int _value)
