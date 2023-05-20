@@ -21,7 +21,10 @@ namespace AlgorithmsDataStructures
         {
             if (count == 0)
                 array = new T[new_capacity];
-
+            
+            if (capacity == new_capacity)
+                return;
+            
             Array.Resize(ref array, new_capacity);
             
             capacity = new_capacity;
@@ -57,9 +60,9 @@ namespace AlgorithmsDataStructures
             Array.ConstrainedCopy(array, index + 1, array, index, count - index - 1);
 
             array[--count] = default(T);
-            
-            if (count > defaultSize && count * 3 < capacity * 2)
-                MakeArray(count);
+
+            if (count * 3 < capacity * 2 - 1)
+                MakeArray(Math.Max(defaultSize, count));
         }
 
     }
