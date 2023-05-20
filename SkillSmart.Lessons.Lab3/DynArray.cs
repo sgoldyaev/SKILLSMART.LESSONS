@@ -51,8 +51,14 @@ namespace AlgorithmsDataStructures
 
         public void Insert(T itm, int index)
         {
-            if (count + 1 == capacity)
+            if (count == capacity)
                 MakeArray(capacity * 2);
+
+            Array.ConstrainedCopy(array, index, array, index + 1, count - index);
+
+            array[index] = itm;
+
+            count++;
         }
 
         public void Remove(int index)

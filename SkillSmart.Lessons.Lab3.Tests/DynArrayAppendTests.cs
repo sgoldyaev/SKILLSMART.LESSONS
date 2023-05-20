@@ -17,21 +17,19 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void CreateDefaultArrayTest()
         {
-            var defaultArray = System.Array.ConvertAll(new int[16], v => 0);
-
             Assert.AreEqual(DynArray<int>.defaultSize, dinArray.array.Length);
             
-            CollectionAssert.AreEqual(defaultArray, dinArray.array);
+            CollectionAssert.AreEqual(ArrayOf16Items.Empty, dinArray.array);
         }
 
         [TestMethod]
         public void Add16ItemsToArrayTest()
         {
-            var arrayOf15Items = new int[16];
+            var arrayOf16Items = new int[16];
 
             for (var index = 0; index < 16; index++)
             {
-                arrayOf15Items[index] = index + 1;
+                arrayOf16Items[index] = index + 1;
 
                 dinArray.Append(index + 1);
             }
@@ -39,7 +37,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
             Assert.AreEqual(DynArray<int>.defaultSize, dinArray.count);
             Assert.AreEqual(DynArray<int>.defaultSize, dinArray.capacity);
             Assert.AreEqual(DynArray<int>.defaultSize, dinArray.array.Length);
-            CollectionAssert.AreEqual(arrayOf15Items, dinArray.array);
+            CollectionAssert.AreEqual(arrayOf16Items, dinArray.array);
         }
 
         [TestMethod]
