@@ -44,7 +44,7 @@ namespace AlgorithmsDataStructures
         public void Append(T itm)
         {
             if (count == capacity)
-                MakeArray(count * 2);
+                MakeArray(capacity * 2);
 
             array[count++] = itm;
         }
@@ -52,7 +52,7 @@ namespace AlgorithmsDataStructures
         public void Insert(T itm, int index)
         {
             if (count + 1 == capacity)
-                MakeArray(capacity *= 2);
+                MakeArray(capacity * 2);
         }
 
         public void Remove(int index)
