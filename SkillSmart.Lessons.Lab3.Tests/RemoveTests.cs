@@ -17,7 +17,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
 
         #region 16 items array
         [TestMethod]
-        public void RemoveFirstOneItemFrom16ItemsArrayTest()
+        public void RemoveFirst1ItemFrom16ItemsArrayTest()
         {
             dinArray.From(ArrayOf16Items.Full);
 
@@ -30,7 +30,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveFirstTwoItemFrom16ItemsArrayTest()
+        public void RemoveFirst2ItemsFrom16ItemsArrayTest()
         {
             dinArray.From(ArrayOf16Items.Full);
 
@@ -44,7 +44,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveLastOneItemFrom16ItemsArrayTest()
+        public void RemoveLast1ItemFrom16ItemsArrayTest()
         {
             dinArray.From(ArrayOf16Items.Full);
 
@@ -57,7 +57,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveLastTwoItemFrom16ItemsArrayTest()
+        public void RemoveLast2ItemsFrom16ItemsArrayTest()
         {
             dinArray.From(ArrayOf16Items.Full);
 
@@ -100,7 +100,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         
         #region 32 items array
         [TestMethod]
-        public void RemoveFirstOneItemFrom32ItemsArrayTest()
+        public void RemoveFirst1ItemFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -113,7 +113,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveFirstTwoItemFrom32ItemsArrayTest()
+        public void RemoveFirst2ItemsFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -127,7 +127,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveLastOneItemFrom32ItemsArrayTest()
+        public void RemoveLast1ItemFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -140,7 +140,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveLastTwoItemFrom32ItemsArrayTest()
+        public void RemoveLast2ItemsFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -154,7 +154,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveMiddleOneItemFrom32ItemsArrayTest()
+        public void RemoveMiddle1ItemFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -167,7 +167,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void RemoveMiddleTwoItemsFrom32ItemsArrayTest()
+        public void RemoveMiddle2ItemsFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -183,7 +183,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
 
         #region 32 items array with resize
         [TestMethod]
-        public void Remove11ItemFrom32ItemsArrayTest()
+        public void Remove11ItemsFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -197,7 +197,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void Remove12ItemFrom32ItemsArrayTest()
+        public void Remove12ItemsFrom32ItemsArrayTest()
         {
             dinArray.From(ArrayOf32Items.Full);
 
@@ -213,10 +213,10 @@ namespace SkillSmart.Lessons.Lab3.Tests
 
         #region 20 items array with resize
         [TestMethod]
-        public void Remove4ItemFrom20ItemsArrayTest()
+        public void Remove4ItemsFrom20ItemsArrayTest()
         {
             // NOTE [sg]: make 20 items array
-            Remove12ItemFrom32ItemsArrayTest();
+            Remove12ItemsFrom32ItemsArrayTest();
             
             for (var index = 0; index < 4; index ++)
                 dinArray.Remove(0);
@@ -228,10 +228,10 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void Remove5ItemFrom20ItemsArrayTest()
+        public void Remove5ItemsFrom20ItemsArrayTest()
         {
             // NOTE [sg]: make 20 items array
-            Remove12ItemFrom32ItemsArrayTest();
+            Remove12ItemsFrom32ItemsArrayTest();
             
             for (var index = 0; index < 5; index ++)
                 dinArray.Remove(0);
@@ -243,10 +243,10 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void Remove7ItemFrom20ItemsArrayTest()
+        public void Remove7ItemsFrom20ItemsArrayTest()
         {
             // NOTE [sg]: make 20 items array
-            Remove12ItemFrom32ItemsArrayTest();
+            Remove12ItemsFrom32ItemsArrayTest();
             
             for (var index = 0; index < 7; index ++)
                 dinArray.Remove(0);
@@ -258,10 +258,10 @@ namespace SkillSmart.Lessons.Lab3.Tests
         }
 
         [TestMethod]
-        public void Remove8ItemFrom20ItemsArrayTest()
+        public void Remove8ItemsFrom20ItemsArrayTest()
         {
             // NOTE [sg]: make 20 items array
-            Remove12ItemFrom32ItemsArrayTest();
+            Remove12ItemsFrom32ItemsArrayTest();
             
             for (var index = 0; index < 8; index ++)
                 dinArray.Remove(0);
