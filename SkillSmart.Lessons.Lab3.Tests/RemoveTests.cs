@@ -1,11 +1,11 @@
-using System;
 using AlgorithmsDataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SkillSmart.Lessons.Lab3.Tests.Data;
 
 namespace SkillSmart.Lessons.Lab3.Tests
 {
     [TestClass]
-    public class DinArrayRemoveTests
+    public class RemoveTests
     {
         private DynArray<int> dinArray;
 
@@ -19,8 +19,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveFirstOneItemFrom16ItemsArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
 
             dinArray.Remove(0);
             
@@ -33,8 +32,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveFirstTwoItemFrom16ItemsArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
 
             dinArray.Remove(0);
             dinArray.Remove(0);
@@ -48,8 +46,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveLastOneItemFrom16ItemsArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
 
             dinArray.Remove(15);
             
@@ -62,8 +59,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveLastTwoItemFrom16ItemsArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
 
             dinArray.Remove(15);
             dinArray.Remove(14);
@@ -77,8 +73,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveMiddleOneItemFrom16ItemsArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
 
             dinArray.Remove(4);
             
@@ -108,8 +103,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveFirstOneItemFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             dinArray.Remove(0);
             
@@ -122,8 +116,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveFirstTwoItemFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             dinArray.Remove(0);
             dinArray.Remove(0);
@@ -137,8 +130,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveLastOneItemFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             dinArray.Remove(31);
             
@@ -151,8 +143,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveLastTwoItemFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             dinArray.Remove(31);
             dinArray.Remove(30);
@@ -166,8 +157,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveMiddleOneItemFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             dinArray.Remove(4);
             
@@ -180,8 +170,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveMiddleTwoItemsFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             dinArray.Remove(4);
             dinArray.Remove(4);
@@ -197,8 +186,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void Remove11ItemFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             for (var index = 0; index < 11; index ++)
                 dinArray.Remove(0);
@@ -212,8 +200,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void Remove12ItemFrom32ItemsArrayTest()
         {
-            foreach (var item in ArrayOf32Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf32Items.Full);
 
             for (var index = 0; index < 12; index ++)
                 dinArray.Remove(0);

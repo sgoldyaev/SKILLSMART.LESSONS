@@ -1,10 +1,11 @@
 using AlgorithmsDataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SkillSmart.Lessons.Lab3.Tests.Data;
 
 namespace SkillSmart.Lessons.Lab3.Tests
 {
     [TestClass]
-    public class DinArrayInsertTests
+    public class InsertTests
     {
         private DynArray<int> dinArray;
 
@@ -17,8 +18,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void InsertFirst1ItemTo16ArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
             
             dinArray.Insert(17, 0);
 
@@ -31,8 +31,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void InsertFirst2ItemsTo16ArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
             
             dinArray.Insert(17, 0);
             dinArray.Insert(18, 0);
@@ -46,10 +45,9 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void InsertFirst16ItemsTo16ArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
             
-            for(var value = 16; value < 32; value ++)
+            for (var value = 16; value < 32; value ++)
                 dinArray.Insert(value + 1, 0);
 
             Assert.AreEqual(32, dinArray.count);
@@ -61,8 +59,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void InsertLast1ItemTo16ArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
             
             dinArray.Insert(17, dinArray.count);
 
@@ -75,8 +72,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void InsertLast2ItemsTo16ArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
             
             dinArray.Insert(17, dinArray.count);
             dinArray.Insert(18, dinArray.count);
@@ -90,8 +86,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void InsertLast16ItemsTo16ArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
 
             for (var index = 16; index < 32; index ++)
                 dinArray.Insert(index + 1, dinArray.count);

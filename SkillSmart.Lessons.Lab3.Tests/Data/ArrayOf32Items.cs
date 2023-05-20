@@ -1,4 +1,4 @@
-﻿namespace SkillSmart.Lessons.Lab3.Tests;
+﻿namespace SkillSmart.Lessons.Lab3.Tests.Data;
 
 public static class ArrayOf32Items
 {
