@@ -86,8 +86,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         public void RemoveMiddleTwoItemsFrom16ItemsArrayTest()
         {
-            foreach (var item in ArrayOf16Items.Full)
-                dinArray.Append(item);
+            dinArray.From(ArrayOf16Items.Full);
 
             dinArray.Remove(4);
             dinArray.Remove(4);
