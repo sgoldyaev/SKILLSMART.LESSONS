@@ -65,10 +65,10 @@ namespace AlgorithmsDataStructures
         {
             Array.ConstrainedCopy(array, index + 1, array, index, count - index - 1);
 
-            /// array[--count] = default(T);
+            array[--count] = default(T);
 
-            if (count * 3 < capacity * 2 - 1)
-                MakeArray(Math.Max(defaultSize, count));
+            if (count * 2 < capacity)
+                MakeArray(Math.Max(defaultSize, (int)(capacity * 2f / 3f)));
         }
 
     }
