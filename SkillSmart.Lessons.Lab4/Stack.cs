@@ -24,9 +24,8 @@ namespace AlgorithmsDataStructures
             
             if (list.Count > 0)
             {
-                var last = list.Count - 1;
-                result = list[last];
-                list.RemoveAt(last);
+                result = list[0];
+                list.RemoveAt(0);
             }
             
             return result;
@@ -35,7 +34,7 @@ namespace AlgorithmsDataStructures
         public void Push(T val)
         {
             // ваш код
-            list.Add(val);
+            list.Insert(0, val);
         }
 
         public T Peek()
@@ -43,7 +42,7 @@ namespace AlgorithmsDataStructures
             var result = default(T);
             
             if (list.Count > 0)
-                result = list[list.Count - 1];
+                result = list[0];
             
             return result;
         }
