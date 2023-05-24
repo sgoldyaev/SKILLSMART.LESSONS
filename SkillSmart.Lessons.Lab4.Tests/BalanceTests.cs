@@ -18,6 +18,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         [DataRow("(()((())()))")]
         [DataRow("(()()(()")]
+        [DataRow("()()")]
         public void Balance1Test(string input)
         {
             var index = 0;
@@ -28,9 +29,11 @@ namespace SkillSmart.Lessons.Lab3.Tests
                 if (symbol == '(')
                     this.stack.Push(1);
                 
-                else if (symbol == ')')
-                    if (this.stack.Pop() == 0)
-                        break;
+                else if (symbol == ')' && stack.Size() > 0)
+                    this.stack.Pop();
+
+                else
+                    break;
             }
 
             Assert.AreEqual(index, input.Length, "Цикл преждевременно завершился");
