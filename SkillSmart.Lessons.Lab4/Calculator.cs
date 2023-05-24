@@ -11,12 +11,12 @@ public class Calculator
             { "/", (left, right) => left / right },
         };
 
-    public int Calculate(string postFixExpression)
+    public int Calculate(string postfixExpression)
     {
         var s1 = new Stack<string>();
         var s2 = new Stack<int>();
 
-        var expression = postFixExpression.Split(' ');
+        var expression = postfixExpression.Split(' ');
         
         for (var index = expression.Length - 1; index >= 0; index--)
             s1.Push(expression[index]);
