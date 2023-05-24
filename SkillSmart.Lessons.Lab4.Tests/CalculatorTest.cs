@@ -17,7 +17,7 @@ namespace SkillSmart.Lessons.Lab3.Tests
         [TestMethod]
         [DataRow("1 2 + 3 * =", 9)]
         [DataRow("8 2 + 5 * 9 + =", 59)]
-        public void PushSingleElementTest(string expression, int expectedResult)
+        public void CalculateExpressionTest(string expression, int expectedResult)
         {
             var actualResult = calculator.Calculate(expression);
 
