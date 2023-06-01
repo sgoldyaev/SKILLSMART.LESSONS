@@ -6,30 +6,51 @@ namespace AlgorithmsDataStructures
 
     public class Deque<T>
     {
-        private readonly List<T> list;
+        ///  NOTE [sg]: O(1) -> LinkedList
+        private readonly LinkedList<T> list;
         
         public Deque()
         {
-            list = new List<T>();
+            list = new LinkedList<T>();
         }
 
         public void AddFront(T item)
         {
-            list.Insert(0, item);
+            var head = list.First;
+
+            if (head == null)
+            {
+                this.list.AddFirst(item);
+            }
+            else
+            {
+                list.AddBefore(head, item);
+            }
         }
 
         public void AddTail(T item)
         {
-            list.Add(item);
+            var tail = list.Last;
+
+            if (tail == null)
+            {
+                this.list.AddLast(item);
+            }
+            else
+            {
+                list.AddAfter(tail, item);
+            }
         }
 
         public T RemoveFront()
         {
             if (list.Count > 0)
             {
-                var item = list[0];
-                list.RemoveAt(0);
-                return item;
+                var head = list.First;
+
+                list.RemoveFirst();
+                
+                return head.Value;
             }
             
             return default(T);
@@ -39,9 +60,11 @@ namespace AlgorithmsDataStructures
         {
             if (list.Count > 0)
             {
-                var item = list[list.Count - 1];
-                list.RemoveAt(list.Count - 1);
-                return item;
+                var tail = list.Last;
+
+                list.RemoveLast();
+                
+                return tail.Value;
             }
             
             return default(T);
