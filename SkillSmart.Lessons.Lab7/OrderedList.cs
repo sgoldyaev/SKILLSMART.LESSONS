@@ -112,12 +112,7 @@ namespace AlgorithmsDataStructures
         public Node<T> Find(T val)
         {
             /// NOTE [sg]: 5. skip connection
-            if (_ascending && Compare(val, head.value) == - _order)
-            {
-                return default;
-            }
-            
-            if (!_ascending && Compare(val, tail.value) == - _order)
+            if (Compare(val, head.value) == - _order || Compare(tail.value, val) == - _order)
             {
                 return default;
             }
@@ -141,13 +136,17 @@ namespace AlgorithmsDataStructures
             Node<T> find = Find(val);
             if (find != null)
             {
+                if (find.next != null && find.prev != null)
+                {
+                    find.next.prev = find.prev;
+                    find.prev.next = find.next;
+                }
+
                 if (find.prev == null)
                 {
                     head = find.next;
 
                     if (find.next != null) find.next.prev = null;
-
-                    return;
                 }
 
                 if (find.next == null)
@@ -155,12 +154,7 @@ namespace AlgorithmsDataStructures
                     tail = find.prev;
 
                     if (find.prev != null) find.prev.next = null;
-
-                    return;
                 }
-
-                find.next.prev = find.prev;
-                find.prev.next = find.next;
             }
         }
 

@@ -42,5 +42,21 @@ namespace SkillSmart.Lessons.Lab7.Tests
             
             Assert.AreEqual(3000, find.value);
         }
+
+        [TestMethod]
+        public void FindLessThanFirstElement()
+        {
+            var find = list.Find(10);
+            
+            Assert.AreEqual(null, find);
+        }
+
+        [TestMethod]
+        public void FindGreaterThanLastElement()
+        {
+            var find = list.Find(10000);
+            
+            Assert.AreEqual(null, find);
+        }
     }
 }

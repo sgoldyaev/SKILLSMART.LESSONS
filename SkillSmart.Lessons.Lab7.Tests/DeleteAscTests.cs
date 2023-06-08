@@ -90,5 +90,31 @@ namespace SkillSmart.Lessons.Lab7.Tests
             Assert.AreEqual(null, list.tail.prev.prev);
             Assert.AreEqual(null, list.tail.next);
         }
+
+        [TestMethod]
+        public void DeleteOrderedAllElements()
+        {
+            list.Delete(1000);
+            list.Delete(2000);
+            list.Delete(3000);
+            
+            Assert.AreEqual(0, list.Count());
+
+            Assert.AreEqual(null, list.head);
+            Assert.AreEqual(null, list.tail);
+        }
+
+        [TestMethod]
+        public void DeleteReversedAllElements()
+        {
+            list.Delete(3000);
+            list.Delete(2000);
+            list.Delete(1000);
+            
+            Assert.AreEqual(0, list.Count());
+
+            Assert.AreEqual(null, list.head);
+            Assert.AreEqual(null, list.tail);
+        }
     }
 }
