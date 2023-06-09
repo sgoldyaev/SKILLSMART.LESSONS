@@ -111,6 +111,11 @@ namespace AlgorithmsDataStructures
 
         public Node<T> Find(T val)
         {
+            if (head == null && tail == null)
+            {
+                return default;
+            }
+
             /// NOTE [sg]: 5. skip connection
             if (Compare(val, head.value) == - _order || Compare(tail.value, val) == - _order)
             {
