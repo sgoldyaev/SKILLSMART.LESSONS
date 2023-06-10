@@ -39,6 +39,10 @@ namespace AlgorithmsDataStructures
             // возвращается индекс слота или -1
             // если из-за коллизий элемент не удаётся разместить
             var slotIndex = Find(value);
+
+            if (slotIndex == -1)
+                slotIndex = SeekSlot(value);
+
             if (slotIndex > -1)
                 slots[slotIndex] = value;
 
@@ -48,7 +52,7 @@ namespace AlgorithmsDataStructures
         public int Find(string value)
         {
             // находит индекс слота со значением, или -1
-             return Search(value, x => x == null || x == value);
+             return Search(value, x => x == value);
        }
 
         private int Search(string value, Func<string, bool> filter)

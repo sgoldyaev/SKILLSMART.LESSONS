@@ -29,9 +29,8 @@ namespace SkillSmart.Lessons.Lab8.Tests
         {
             var slot = table.Find("Quick");
 
-            Assert.AreNotEqual(-1, slot);
+            Assert.AreEqual(-1, slot);
         }
-
 
         [TestMethod]
         public void FindTheSameStringTest()
@@ -65,23 +64,6 @@ namespace SkillSmart.Lessons.Lab8.Tests
 
             Assert.AreEqual(slot1, hash1);
         }
-
-        [TestMethod]
-        public void FindSlotInOneVacantSlotTableTest()
-        {
-            for (var i = 0; i < table.slots.Length; i++) table.slots[i] = "busy";
-
-            var hash1 = table.HashFun("Quick");
-            var emptySlot = hash1 > 0 ? hash1 - 1 : table.slots.Length - 1;
-
-            table.slots[emptySlot] = null;
-
-            var slot1 = table.Find("Quick");
-
-            Assert.AreNotEqual(-1, slot1);
-            Assert.AreEqual(emptySlot, slot1);
-        }
-
 
         [TestMethod]
         public void FindSlotInFullTableTest()
