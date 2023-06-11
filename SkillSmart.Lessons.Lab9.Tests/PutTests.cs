@@ -1,17 +1,16 @@
 using AlgorithmsDataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using System.Linq;
 
-namespace SkillSmart.Lessons.Lab8.Tests
+namespace SkillSmart.Lessons.Lab9.Tests
 {
     [TestClass]
     public class PutTests
     {
-        private readonly bool asc = true;
         private NativeDictionary<string> dic;
 
         [TestInitialize]
-        public void Init() 
+        public void Init()
         {
             dic = new NativeDictionary<string>(4);
         }
@@ -21,9 +20,7 @@ namespace SkillSmart.Lessons.Lab8.Tests
         {
             dic.Put(null, "value1");
 
-            var value = dic.Get(null);
-
-            Assert.IsNull(value);
+            Assert.IsTrue(dic.slots.All(x => x == null));
         }
 
         [TestMethod]
@@ -31,9 +28,40 @@ namespace SkillSmart.Lessons.Lab8.Tests
         {
             dic.Put("key1", "value1");
 
-            var slot = dic.Get("key1");
+            Assert.IsTrue(dic.slots.Count(x => x == "key1") == 1);
+            Assert.IsTrue(dic.slots.Count(x => !string.IsNullOrEmpty(x) && x != "key1") == 0);
 
-            Assert.AreNotEqual(-1, slot);
+            Assert.IsTrue(dic.values.Count(x => x == "value1") == 1);
+            Assert.IsTrue(dic.values.Count(x => !string.IsNullOrEmpty(x) && x != "value1") == 0);
+        }
+
+        [TestMethod]
+        public void PutTwoStringTest()
+        {
+            dic.Put("key1", "value1");
+            dic.Put("key2", "value2");
+
+            Assert.IsTrue(dic.slots.Count(x => x == "key1") == 1);
+            Assert.IsTrue(dic.slots.Count(x => x == "key2") == 1);
+            Assert.IsTrue(dic.slots.Count(x => !string.IsNullOrEmpty(x) && x != "key1" && x != "key2") == 0);
+
+            Assert.IsTrue(dic.values.Count(x => x == "value1") == 1);
+            Assert.IsTrue(dic.values.Count(x => x == "value2") == 1);
+            Assert.IsTrue(dic.values.Count(x => !string.IsNullOrEmpty(x) && x != "value1" && x != "value2") == 0);
+        }
+
+        [TestMethod]
+        public void PutStringTwiseTest()
+        {
+            dic.Put("key1", "value1");
+            dic.Put("key1", "value2");
+
+            Assert.IsTrue(dic.slots.Count(x => x == "key1") == 1);
+            Assert.IsTrue(dic.slots.Count(x => !string.IsNullOrEmpty(x) && x != "key1") == 0);
+
+            Assert.IsTrue(dic.values.Count(x => x == "value1") == 0);
+            Assert.IsTrue(dic.values.Count(x => x == "value2") == 1);
+            Assert.IsTrue(dic.values.Count(x => !string.IsNullOrEmpty(x) && x != "value2") == 0);
         }
     }
 }

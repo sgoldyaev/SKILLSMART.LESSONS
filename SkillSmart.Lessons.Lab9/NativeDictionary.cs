@@ -6,7 +6,7 @@ namespace AlgorithmsDataStructures
 
     public class NativeDictionary<T>
     {
-        private readonly int step = 13;
+        private readonly int step = 3;
         public int size;
         public string[] slots;
         public T[] values;
@@ -40,7 +40,7 @@ namespace AlgorithmsDataStructures
             // или null если ключ не найден
             var slot = Find(key);
 
-            if (slot > 0) return values[slot];
+            if (slot > -1) return values[slot];
 
             return default(T);
         }
@@ -67,11 +67,8 @@ namespace AlgorithmsDataStructures
             // если из-за коллизий элемент не удаётся разместить
             var slotIndex = Find(value);
 
-            if (slotIndex == -1)
-                slotIndex = SeekSlot(value);
-
-            if (slotIndex > -1)
-                slots[slotIndex] = value;
+            if (slotIndex == -1) slotIndex = SeekSlot(value);
+            if (slotIndex > -1) slots[slotIndex] = value;
 
             return slotIndex;
         }
