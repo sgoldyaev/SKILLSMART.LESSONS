@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AlgorithmsDataStructures
+﻿namespace AlgorithmsDataStructures
 {
 
-    public class HashTable
+    public class HashTable<T>
     {
         public int size;
         public int step;
-        public string[] slots;
+        public T[] slots;
 
         public HashTable(int sz, int stp)
         {
             size = sz;
             step = stp;
-            slots = new string[size];
-            for (int i = 0; i < size; i++) slots[i] = null;
+            slots = new T[size];
+            for (int i = 0; i < size; i++) slots[i] = default(T);
         }
 
-        public int HashFun(string value)
+        public int HashFun(T value)
         {
             if (value == null) return -1;
 
@@ -26,15 +23,16 @@ namespace AlgorithmsDataStructures
             return Math.Abs(value.GetHashCode() % size);
         }
 
-        public int SeekSlot(string value)
+        public int SeekSlot(T value)
         {
             // находит индекс пустого слота для значения, или -1
-            return Search(value, x => x == null);
+            return Search(HashFun(value), x => x == null);
         }
 
-        public int Put(string value)
+        public virtual int Put(T value)
         {
             // записываем значение по хэш-функции
+            if (value == null) return -1;
 
             // возвращается индекс слота или -1
             // если из-за коллизий элемент не удаётся разместить
@@ -49,16 +47,15 @@ namespace AlgorithmsDataStructures
             return slotIndex;
         }
 
-        public int Find(string value)
+        public int Find(T value)
         {
             // находит индекс слота со значением, или -1
-             return Search(value, x => x == value);
+             return Search(HashFun(value), x => x?.Equals(value) == true);
        }
 
-        private int Search(string value, Func<string, bool> filter)
+        private int Search(int slotIndex, Func<T, bool> filter)
         {
-            var slotIndex = HashFun(value);
-            if (slotIndex < 0) return slotIndex;
+            if (slotIndex == -1) return slotIndex;
             if (filter(slots[slotIndex])) return slotIndex;
 
             for (var index = 0; index < size; index+=step)

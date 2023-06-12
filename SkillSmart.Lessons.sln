@@ -39,6 +39,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSmart.Lessons.Lab9", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSmart.Lessons.Lab9.Tests", "SkillSmart.Lessons.Lab9.Tests\SkillSmart.Lessons.Lab9.Tests.csproj", "{0527E74D-DEF2-4387-AAFE-90B233F40850}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSmart.Lessons.Lab10", "SkillSmart.Lessons.Lab10\SkillSmart.Lessons.Lab10.csproj", "{628DF354-A0A9-4554-A481-6B97C52C32F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillSmart.Lessons.Lab10.Tests", "SkillSmart.Lessons.Lab10.Tests\SkillSmart.Lessons.Lab10.Tests.csproj", "{B9E69CF2-F876-4EA0-BAFA-BF482FEAA520}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +121,14 @@ Global
 		{0527E74D-DEF2-4387-AAFE-90B233F40850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0527E74D-DEF2-4387-AAFE-90B233F40850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0527E74D-DEF2-4387-AAFE-90B233F40850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{628DF354-A0A9-4554-A481-6B97C52C32F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{628DF354-A0A9-4554-A481-6B97C52C32F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{628DF354-A0A9-4554-A481-6B97C52C32F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{628DF354-A0A9-4554-A481-6B97C52C32F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9E69CF2-F876-4EA0-BAFA-BF482FEAA520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E69CF2-F876-4EA0-BAFA-BF482FEAA520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E69CF2-F876-4EA0-BAFA-BF482FEAA520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E69CF2-F876-4EA0-BAFA-BF482FEAA520}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
