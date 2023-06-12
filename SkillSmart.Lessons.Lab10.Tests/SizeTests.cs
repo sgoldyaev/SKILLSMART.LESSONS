@@ -1,6 +1,5 @@
 using AlgorithmsDataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace SkillSmart.Lessons.Lab10.Tests
 {

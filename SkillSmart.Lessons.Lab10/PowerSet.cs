@@ -8,11 +8,12 @@ namespace AlgorithmsDataStructures
     // наследуйте этот класс от HashTable
     // или расширьте его методами из HashTable
     public class PowerSet<T> : HashTable<T>
+        //where T : IComparable<T>
     {
         private int count = 0;
 
         public PowerSet() 
-            : base(20_000, 17)
+            : base(20_000, 29)
         {
             // ваша реализация хранилища
         }
@@ -32,15 +33,22 @@ namespace AlgorithmsDataStructures
 
         public override int Put(T value)
         {
-            var find = base.Find(value);
+            if (value == null) return -1;
 
-            if (find > -1) return find;
+            var slotIndex = Find(value);
 
-            var put = base.Put(value);
+            if (slotIndex > -1) 
+                return slotIndex;
+            
+            else if (slotIndex == -1)
+                slotIndex = SeekSlot(value);
 
-            if (put > -1) count ++;
-
-            return put;
+            if (slotIndex > -1)
+            {
+                slots[slotIndex] = value;
+                count ++;
+            }
+            return slotIndex;
         }
 
         public bool Remove(T value)
@@ -61,19 +69,40 @@ namespace AlgorithmsDataStructures
         public PowerSet<T> Intersection(PowerSet<T> set2)
         {
             // пересечение текущего множества и set2
-            return null;
+            var result = new PowerSet<T>();
+
+            if (Size() == 0 && set2.Size() == 0) return result;
+
+            foreach (var item in slots.Where(x => x != null).Intersect(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+                result.Put(item);
+            
+            return result;
         }
 
         public PowerSet<T> Union(PowerSet<T> set2)
         {
             // объединение текущего множества и set2
-            return null;
+            var result = new PowerSet<T>();
+
+            if (Size() == 0 && set2.Size() == 0) return result;
+
+            foreach (var item in slots.Where(x => x != null).Union(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+                result.Put(item);
+            
+            return result;
         }
 
         public PowerSet<T> Difference(PowerSet<T> set2)
         {
             // разница текущего множества и set2
-            return null;
+            var result = new PowerSet<T>();
+
+            if (Size() == 0 && set2.Size() == 0) return result;
+
+            foreach (var item in slots.Where(x => x != null).Except(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+                result.Put(item);
+            
+            return result;
         }
 
         public bool IsSubset(PowerSet<T> set2)

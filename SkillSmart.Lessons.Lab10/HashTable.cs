@@ -1,4 +1,6 @@
-﻿namespace AlgorithmsDataStructures
+﻿using System.Diagnostics;
+
+namespace AlgorithmsDataStructures
 {
 
     public class HashTable<T>
@@ -42,7 +44,7 @@
                 slotIndex = SeekSlot(value);
 
             if (slotIndex > -1)
-                slots[slotIndex] = value;
+                slots[slotIndex] = value; 
 
             return slotIndex;
         }
@@ -58,14 +60,20 @@
             if (slotIndex == -1) return slotIndex;
             if (filter(slots[slotIndex])) return slotIndex;
 
-            for (var index = 0; index < size; index+=step)
+            var seekStep = step;
+            for (var startIndex = 0; startIndex < 1; startIndex++)
             {
-                var seekIndex = (slotIndex + index) % size;
-                var isTail = seekIndex == slotIndex - 1;
-                var isFound = filter(slots[seekIndex]);
+                for (var index = 0; index < size; index+=seekStep)
+                {
+                    var seekIndex = (slotIndex + startIndex + index) % size;
+                    var isTail = startIndex + 1 == size && seekIndex == slotIndex - 1;
+                    var isFound = filter(slots[seekIndex]);
 
-                if (isFound) return seekIndex;
-                if (isTail && !isFound) return -1;
+                    if (isFound) return seekIndex;
+                    if (isTail && !isFound) return -1;
+                }
+
+                ///seekStep -= 2;
             }
             return -1;
         }
