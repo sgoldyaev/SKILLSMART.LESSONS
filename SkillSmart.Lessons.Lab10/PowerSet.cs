@@ -7,7 +7,7 @@ namespace AlgorithmsDataStructures
     // наследуйте этот класс от HashTable
     // или расширьте его методами из HashTable
     public class PowerSet<T> : HashTable<T>
-        //where T : IComparable<T>
+        where T : IComparable<T>
     {
         private int count = 0;
 
@@ -73,7 +73,8 @@ namespace AlgorithmsDataStructures
 
             if (Size() == 0 && set2.Size() == 0) return result;
 
-            foreach (var item in slots.Where(x => x != null).Intersect(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+            //foreach (var item in slots.Where(x => x != null).Intersect(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+            foreach (var item in ArrayMath.Intersect<T>(slots, set2.slots)) 
                 result.Put(item);
             
             return result;
@@ -86,7 +87,8 @@ namespace AlgorithmsDataStructures
 
             if (Size() == 0 && set2.Size() == 0) return result;
 
-            foreach (var item in slots.Where(x => x != null).Union(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+            //foreach (var item in slots.Where(x => x != null).Union(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+            foreach (var item in ArrayMath.Union<T>(slots, set2.slots)) 
                 result.Put(item);
             
             return result;
@@ -99,7 +101,8 @@ namespace AlgorithmsDataStructures
 
             if (Size() == 0 && set2.Size() == 0) return result;
 
-            foreach (var item in slots.Where(x => x != null).Except(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+            //foreach (var item in slots.Where(x => x != null).Except(set2.slots.Where(x => x != null)).Where(x => x != null).ToArray()) 
+            foreach (var item in ArrayMath.Except<T>(slots, set2.slots)) 
                 result.Put(item);
             
             return result;

@@ -34,6 +34,8 @@ namespace SkillSmart.Lessons.Lab10.Tests
             set2.Put("jump");
             set2.Put("over");
 
+            var s1 = (string[])set1.slots.Clone();
+
             var set = set1.Intersection(set2);
 
             Assert.AreEqual(0, set.Size());
