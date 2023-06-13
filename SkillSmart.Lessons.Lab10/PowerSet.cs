@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace AlgorithmsDataStructures
@@ -12,7 +11,7 @@ namespace AlgorithmsDataStructures
     {
         private int count = 0;
 
-        public PowerSet() 
+        public PowerSet()
             : base(20_000, 29)
         {
             // ваша реализация хранилища
@@ -33,6 +32,7 @@ namespace AlgorithmsDataStructures
 
         public override int Put(T value)
         {
+            // всегда срабатывает
             if (value == null) return -1;
 
             var slotIndex = Find(value);
@@ -110,7 +110,13 @@ namespace AlgorithmsDataStructures
             // возвращает true, если set2 есть
             // подмножество текущего множества,
             // иначе false
-            return false;
+
+            if (set2.Size() == 0) return true;
+            else if (Size() == 0) return false;
+
+            var set = set2.slots.Where(x => x != null).Except(slots.Where(x => x != null)).Where(x => x != null);
+            
+            return !set.Any();
         }
     }
 }
