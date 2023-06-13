@@ -3,6 +3,272 @@ using System.Collections.Generic;
 
 namespace AlgorithmsDataStructures
 {
+    public static class ArrayMath
+    {
+        public static T[] Intersect<T>(T[] source, T[] destination) where T : IComparable<T>
+        {
+            var sorted1 = (T[])source.Clone();
+            var sorted2 = (T[])destination.Clone();
+            var intersect = new T[sorted1.Length + sorted2.Length];
+
+            Array.Sort(sorted1);
+            Array.Sort(sorted2);
+
+            var index = 0;
+            var index1 = 0;
+            var index2 = 0;
+            var left = default(T);
+            var right = default(T);
+
+            while (index1 < sorted1.Length && index2 < sorted2.Length)
+            {
+                if (index1 < sorted1.Length) left = sorted1[index1];
+                if (index2 < sorted2.Length) right = sorted2[index2];
+
+                if (left == null)
+                {
+                    index1++;
+                    continue;
+                }
+                if (right == null)
+                {
+                    index2++;
+                    continue;
+                }
+
+                var compare = left.CompareTo(right);
+                if (compare == 0)
+                {
+                    intersect[index] = left;
+                    index1++;
+                    index2++;
+                    index++;
+                }
+                if (compare < 0) index1++;
+                if (compare > 0) index2++;
+            }
+
+            Array.Resize(ref intersect, index);
+
+            return intersect;
+        }
+
+        public static T[] Union<T>(T[] source, T[] destination) where T : IComparable<T>
+        {
+            var sorted1 = (T[])source.Clone();
+            var sorted2 = (T[])destination.Clone();
+            var union = new T[sorted1.Length + sorted2.Length];
+
+            Array.Sort(sorted1);
+            Array.Sort(sorted2);
+
+            var index = 0;
+            var index1 = 0;
+            var index2 = 0;
+            var left = default(T);
+            var right = default(T);
+            var candidate = default(T);
+
+            while (index1 < sorted1.Length && index2 < sorted2.Length)
+            {
+                if (index1 < sorted1.Length) left = sorted1[index1];
+                if (index2 < sorted2.Length) right = sorted2[index2];
+
+                if (left == null)
+                {
+                    index1++;
+                    continue;
+                }
+                if (right == null)
+                {
+                    index2++;
+                    continue;
+                }
+
+                var compare = left.CompareTo(right);
+                if (compare < 0)
+                {
+                    candidate = left;
+                    index1++;
+                }
+                else if (compare > 0)
+                {
+                    candidate = right;
+                    index2++;
+                }
+                else
+                {
+                    candidate = left;
+                    index1++;
+                }
+
+                if (candidate != null && (index == 0 || !union[index - 1].Equals(candidate)))
+                {
+                    union[index] = candidate;
+                    index++;
+                    candidate = default(T);
+                }
+            }
+
+            while (index1 < sorted1.Length)
+                union[index++] = sorted1[index1++];
+
+            while (index2 < sorted2.Length)
+                union[index++] = sorted2[index2++];
+
+
+            Array.Resize(ref union, index);
+
+            return union;
+        }
+
+        public static T[] Except<T>(T[] source, T[] destination) where T : IComparable<T>
+        {
+            var sorted1 = (T[])source.Clone();
+            var sorted2 = (T[])destination.Clone();
+            var except = new T[sorted1.Length + sorted2.Length];
+
+            Array.Sort(sorted1);
+            Array.Sort(sorted2);
+
+            var index = 0;
+            var index1 = 0;
+            var index2 = 0;
+            var left = default(T);
+            var right = default(T);
+            var candidate = default(T);
+
+            while (index1 < sorted1.Length && index2 < sorted2.Length)
+            {
+                if (index1 < sorted1.Length) left = sorted1[index1];
+                if (index2 < sorted2.Length) right = sorted2[index2];
+
+                if (left == null)
+                {
+                    index1++;
+                    continue;
+                }
+                if (right == null)
+                {
+                    index2++;
+                    continue;
+                }
+
+                if (index > 0 && except[index - 1].Equals(left))
+                {
+                    index1++;
+                    continue;
+                }
+
+                var compare = left.CompareTo(right);
+                if (compare < 0)
+                {
+                    candidate = left;
+                    index1++;
+                }
+                else if (compare > 0)
+                {
+                    index2++;
+                }
+                else
+                {
+                    index1++;
+                    index2++;
+                }
+
+                if (candidate != null && (index == 0 || !except[index - 1].Equals(candidate)))
+                {
+                    except[index] = candidate;
+                    index++;
+                    candidate = default(T);
+                }
+            }
+
+            while (index1 < sorted1.Length)
+                except[index++] = sorted1[index1++];
+
+            Array.Resize(ref except, index);
+
+            return except;
+        }
+
+    }
+
+    public class HashTable<T>
+    {
+        public int size;
+        public int step;
+        public T[] slots;
+
+        public HashTable(int sz, int stp)
+        {
+            size = sz;
+            step = stp;
+            slots = new T[size];
+            for (int i = 0; i < size; i++) slots[i] = default(T);
+        }
+
+        public int HashFun(T value)
+        {
+            if (value == null) return -1;
+
+            // всегда возвращает корректный индекс слота
+            return Math.Abs(value.GetHashCode() % size);
+        }
+
+        public int SeekSlot(T value)
+        {
+            // находит индекс пустого слота для значения, или -1
+            return Search(HashFun(value), x => x == null);
+        }
+
+        public virtual int Put(T value)
+        {
+            // записываем значение по хэш-функции
+            if (value == null) return -1;
+
+            // возвращается индекс слота или -1
+            // если из-за коллизий элемент не удаётся разместить
+            var slotIndex = Find(value);
+
+            if (slotIndex == -1)
+                slotIndex = SeekSlot(value);
+
+            if (slotIndex > -1)
+                slots[slotIndex] = value; 
+
+            return slotIndex;
+        }
+
+        public int Find(T value)
+        {
+            // находит индекс слота со значением, или -1
+             return Search(HashFun(value), x => x?.Equals(value) == true);
+       }
+
+        private int Search(int slotIndex, Func<T, bool> filter)
+        {
+            if (slotIndex == -1) return slotIndex;
+            if (filter(slots[slotIndex])) return slotIndex;
+
+            var seekStep = step;
+            for (var startIndex = 0; startIndex < 1; startIndex++)
+            {
+                for (var index = 0; index < size; index+=seekStep)
+                {
+                    var seekIndex = (slotIndex + startIndex + index) % size;
+                    var isTail = startIndex + 1 == size && seekIndex == slotIndex - 1;
+                    var isFound = filter(slots[seekIndex]);
+
+                    if (isFound) return seekIndex;
+                    if (isTail && !isFound) return -1;
+                }
+
+                ///seekStep -= 2;
+            }
+            return -1;
+        }
+    }
 
     // наследуйте этот класс от HashTable
     // или расширьте его методами из HashTable
