@@ -117,9 +117,9 @@ namespace AlgorithmsDataStructures
             if (set2.Size() == 0) return true;
             else if (Size() == 0) return false;
 
-            var set = set2.slots.Where(x => x != null).Except(slots.Where(x => x != null)).Where(x => x != null);
+            var set = ArrayMath.Except<T>(set2.slots, slots);
             
-            return !set.Any();
+            return set.Length == 0;
         }
     }
 }
