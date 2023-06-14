@@ -6,19 +6,6 @@ namespace SkillSmart.Lessons.Lab11.Tests
     [TestClass]
     public class BloomFilterTests
     {
-        private readonly string[] data = new string[]
-        {
-            "0123456789",
-            "1234567890",
-            "2345678901",
-            "3456789012",
-            "4567890123",
-            "5678901234",
-            "6789012345",
-            "7890123456",
-            "8901234567",
-            "9012345678",
-        };
         private BloomFilter filter;
 
         [TestInitialize]
@@ -28,13 +15,42 @@ namespace SkillSmart.Lessons.Lab11.Tests
         }
 
         [TestMethod]
-        public void Intersection1Test()
+        [DataRow("0123456789")]
+        [DataRow("1234567890")]
+        [DataRow("2345678901")]
+        [DataRow("3456789012")]
+        [DataRow("4567890123")]
+        [DataRow("5678901234")]
+        [DataRow("6789012345")]
+        [DataRow("7890123456")]
+        [DataRow("8901234567")]
+        [DataRow("9012345678")]
+        public void Intersection1Test(string input)
         {
-            filter.Add(data[0]);
+            filter.Add(input);
 
-            var isValue1 = filter.IsValue(data[0]);
+            var exists = filter.IsValue(input);
 
-            Assert.IsTrue(isValue1);
+            Assert.IsTrue(exists);
+        }
+
+        [TestMethod]
+        [DataRow("5678901234")]
+        [DataRow("6789012345")]
+        [DataRow("7890123456")]
+        [DataRow("8901234567")]
+        [DataRow("9012345678")]
+        public void Intersection2Test(string input)
+        {
+            filter.Add("0123456789");
+            filter.Add("1234567890");
+            filter.Add("2345678901");
+            filter.Add("3456789012");
+            filter.Add("4567890123");
+
+            var exists = filter.IsValue(input);
+
+            Assert.IsFalse(exists);
         }
     }
 }
