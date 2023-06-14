@@ -53,8 +53,8 @@ namespace AlgorithmsDataStructures
             var hash1 = Hash1(str1);
             var hash2 = Hash2(str1);
 
-            filter |= hash1 == 0 ? 0 : 1 << hash1;
-            filter |= hash2 == 0 ? 0 : 1 << hash2;
+            filter |= 1 << hash1;
+            filter |= 1 << hash2;
         }
 
         public bool IsValue(string str1)
@@ -63,8 +63,8 @@ namespace AlgorithmsDataStructures
             var hash1 = Hash1(str1);
             var hash2 = Hash2(str1);
 
-            var mask1 = (hash1 == 0 ? 0 : 1 << hash1);
-            var mask2 = (hash2 == 0 ? 0 : 1 << hash2);
+            var mask1 = 1 << hash1;
+            var mask2 = 1 << hash2;
 
             return (mask1 == (mask1 & filter)) && (mask2 == (mask2 & filter));
         }

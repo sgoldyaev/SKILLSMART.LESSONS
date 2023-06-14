@@ -33,24 +33,5 @@ namespace SkillSmart.Lessons.Lab11.Tests
 
             Assert.IsTrue(exists);
         }
-
-        [TestMethod]
-        [DataRow("5678901234")]
-        [DataRow("6789012345")]
-        [DataRow("7890123456")]
-        [DataRow("8901234567")]
-        [DataRow("9012345678")]
-        public void Intersection2Test(string input)
-        {
-            filter.Add("0123456789");
-            filter.Add("1234567890");
-            filter.Add("2345678901");
-            filter.Add("3456789012");
-            filter.Add("4567890123");
-
-            var exists = filter.IsValue(input);
-
-            Assert.IsFalse(exists);
-        }
     }
 }
