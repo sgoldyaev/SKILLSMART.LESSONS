@@ -1,0 +1,32 @@
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab10/PowerSet.cs
+
+sorted1		- setA
+sorted2		- setB
+intersect	- intersectionOfAandB
+union		- unionOfAandB
+except		- differenceOfAandB
+index1		- indexOfA
+index2		- indexOfB
+index		- indexOfIntersection
+left		- elementOfA
+right		- elementOfB
+compare		- comparisionOfAandB
+// Вычисление пересечения двух множеств, (аналогичные переменные используются при вычислении объеденения множеств)
+
+
+slotIndex	- slotForValue
+slot		- slotForValue
+// Индекс в слотах для значения value (кандидат для размещения, -1 - слот пустой или занят при >-1)
+
+
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab11/BloomFilter.cs
+result		- hash1
+result		- hash2
+// вычисление хеша 1 и 2
+
+
+
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab1/Lab1Bonus.cs
+l			- leftNode
+r			- rightNode
+// Объединение двух списков с суммированием элементов
