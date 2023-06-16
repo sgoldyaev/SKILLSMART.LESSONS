@@ -1,4 +1,4 @@
-https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab10/PowerSet.cs
+п»їhttps://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab10/PowerSet.cs
 
 sorted1		- setA
 sorted2		- setB
@@ -11,22 +11,22 @@ index		- indexOfIntersection
 left		- elementOfA
 right		- elementOfB
 compare		- comparisionOfAandB
-// Вычисление пересечения двух множеств, (аналогичные переменные используются при вычислении объеденения множеств)
+// Р’С‹С‡РёСЃР»РµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РґРІСѓС… РјРЅРѕР¶РµСЃС‚РІ, (Р°РЅР°Р»РѕРіРёС‡РЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ РїСЂРё РІС‹С‡РёСЃР»РµРЅРёРё РѕР±СЉРµРґРµРЅРµРЅРёСЏ РјРЅРѕР¶РµСЃС‚РІ)
 
 
 slotIndex	- slotForValue
 slot		- slotForValue
-// Индекс в слотах для значения value (кандидат для размещения, -1 - слот пустой или занят при >-1)
+// РРЅРґРµРєСЃ РІ СЃР»РѕС‚Р°С… РґР»СЏ Р·РЅР°С‡РµРЅРёСЏ value (РєР°РЅРґРёРґР°С‚ РґР»СЏ СЂР°Р·РјРµС‰РµРЅРёСЏ, -1 - СЃР»РѕС‚ РїСѓСЃС‚РѕР№ РёР»Рё Р·Р°РЅСЏС‚ РїСЂРё >-1)
 
 
 https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab11/BloomFilter.cs
 result		- hash1
 result		- hash2
-// вычисление хеша 1 и 2
+// РІС‹С‡РёСЃР»РµРЅРёРµ С…РµС€Р° 1 Рё 2
 
 
 
 https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab1/Lab1Bonus.cs
 l			- leftNode
 r			- rightNode
-// Объединение двух списков с суммированием элементов
+// РћР±СЉРµРґРёРЅРµРЅРёРµ РґРІСѓС… СЃРїРёСЃРєРѕРІ СЃ СЃСѓРјРјРёСЂРѕРІР°РЅРёРµРј СЌР»РµРјРµРЅС‚РѕРІ
