@@ -1,0 +1,40 @@
+﻿6.1. Разберите свой код, и сделайте пять примеров, где можно более наглядно учесть в именах переменных уровни абстракции.
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab10/PowerSet.cs
+compare - comparisionOfAandB
+
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab4/Calculator.cs
+s1 - stack1
+s2 - stack2
+expression - tokens
+left - leftOperand
+right - rightOperand
+
+
+6.2. Приведите четыре примера, где вы в качестве имён переменных использовали или могли бы использовать технические термины из информатики.
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab1/Lab1Bonus.cs
+l - leftNode
+r - rightNode
+node - устоявшийся термин в связанном списке или дереве в CS
+
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab10/PowerSet.cs
+intersect	- intersectionOfAandB
+union		- unionOfAandB
+except		- differenceOfAandB
+при работе со множеством, часто употребляются мат термины (сложения, умножения, вычитание множеств)
+
+
+6.3. Придумайте или найдите в своём коде три примера, когда имена переменных даны с учётом контекста (функции, метода, класса).
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab11/BloomFilter.cs
+hash1, hash2, mask1, mask2 - хеш и битовая маска для соотвествующего алгоритма.
+
+
+6.4. Найдите пять имён переменных в своём коде, длины которых не укладываются в 8-20 символов, и исправьте, чтобы они укладывались в данный диапазон.
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab1/Lab1Bonus.cs
+l - leftNodeValue
+r - rightNodeValue
+
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab10/PowerSet.cs
+left - leftNodeValue
+right - rightNodeValue
+index - indexOfIntersectedSet
+compare - comparisionOfAandB

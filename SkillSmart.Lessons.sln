@@ -56,6 +56,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practice 1.5", "Practice 1.5", "{4076CA99-1B3D-4263-AAE0-14C0903B2DF0}"
 	ProjectSection(SolutionItems) = preProject
 		SkillSmart.Lessons.Lab.1.5.1.txt = SkillSmart.Lessons.Lab.1.5.1.txt
+		SkillSmart.Lessons.Lab.1.5.2.txt = SkillSmart.Lessons.Lab.1.5.2.txt
 	EndProjectSection
 EndProject
 Global
