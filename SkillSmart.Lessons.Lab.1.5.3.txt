@@ -1,0 +1,35 @@
+﻿7.1. Приведите пять примеров правильного именования булевых переменных в вашем коде в формате "было - стало".
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab10/PowerSet.cs
+isFound - found
+isTail - isEOL
+
+
+7.2. Найдите несколько подходящих случаев, когда в вашем коде можно использовать типичные имена булевых переменных.
+found
+connected
+loaded
+
+
+7.3. Проверьте, правильно ли вы даёте имена индексам циклов. Попробуйте найти случай, когда вместо i j k нагляднее использовать более выразительное имя.
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab9/NativeDictionary.cs
+slotIndex - индекс кандидат от хеш функции
+startIndex - индекс с которого начинается поиск свободного слота
+seekIndex - свободный слот, если slotindex уже занят
+index - индекс для перебора смещенния от slotIndex
+
+
+7.4. Попробуйте найти в своих решениях два-три случая, когда можно использовать пары имён - антонимы.
+
+
+7.5. Всем ли временным переменным в вашем коде присвоены выразительные имена? Найдите несколько случаев, когда временные переменные надо переименовать, и поищите, возможно, от некоторых временных переменных вам получится вообще полностью избавиться.
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab9/NativeDictionary.cs
+isTail - используется один раз в методе, можно избавится
+
+https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab7/OrderedList.cs
+Вот здесь прям беда:
+- нужно было ввести переменную для результата сравнения Compare
+- и переименовать _order - Отвечающую за указания порядка сортировки ASC/DESC
+
+''' 
+Compare(node.value, next.value) != - _order 
+'''
