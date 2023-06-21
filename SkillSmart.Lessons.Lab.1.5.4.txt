@@ -1,0 +1,13 @@
+﻿https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab7/OrderedList.cs
+
+_order - leftGtRight // кодирование сортировки в терминах {1, 0, -1}, Где 1 - left value greater than right value
+v1, v2 - leftValue, rightValue // переменные для функции сравнения
+Not Defined  - leftValueAsString, rightValueAsString // приведение v1, v2 к строкам (для сравнения)
+с1, c2 - leftValueAsComparable, rightValueAsComparable // приведение v1, v2 к IComparable
+result - comparision
+node - newNode // при добавлении Node
+next - nextNode // при переборе элементов связанного списка
+find - nextNode // при переборе элементов связанного списка
+find - foundNode // при поиске элемента в связанном списке
+r - nodes // результат GetAll
+node - nextNode // при переборе элементов связанного списка

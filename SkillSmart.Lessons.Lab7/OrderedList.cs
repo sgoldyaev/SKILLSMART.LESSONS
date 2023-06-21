@@ -20,33 +20,37 @@ namespace AlgorithmsDataStructures
     public class OrderedList<T>
     {
         public Node<T> head, tail;
-        private bool _ascending;
-        private int _order;
+        private bool ascending;
+        private int leftGtRight;
 
         public OrderedList(bool asc)
         {
             head = null;
             tail = null;
 
-            _ascending = asc;
-            _order = _ascending ? 1 : -1;
+            ascending = asc;
+            leftGtRight = ascending ? 1 : -1;
         }
 
-        public int Compare(T v1, T v2)
+        public int Compare(T leftValue, T rightValue)
         {
-            int result = 0;
+            var comparision = 0;
+            
             if (typeof(T) == typeof(String))
             {
-                result = string.Compare(v1?.ToString()?.Trim(), v2?.ToString()?.Trim(), StringComparison.InvariantCulture);
+                var leftValueAsString = leftValue?.ToString();
+                var rightValueAsString = rightValue?.ToString();
+
+                comparision = string.Compare(leftValueAsString?.Trim(), rightValueAsString?.Trim(), StringComparison.InvariantCulture);
             }
             else if (typeof(IComparable).IsAssignableFrom(typeof(T)))
             {
-                var c1 = v1 as IComparable;
-                var c2 = v2 as IComparable;
-                result = c1.CompareTo(v2);
+                var leftValueAsComparable = leftValue as IComparable;
+                var rightValueAsComparable = rightValue as IComparable;
+                comparision = leftValueAsComparable.CompareTo(rightValueAsComparable);
             }
 
-            return result;
+            return comparision;
             // -1 если v1 < v2
             // 0 если v1 == v2
             // +1 если v1 > v2
@@ -54,56 +58,56 @@ namespace AlgorithmsDataStructures
 
         public void Add(T value)
         {
-            var node = new Node<T>(value);
+            var newNode = new Node<T>(value);
 
             if (head == null)
             {
-                head = node;
-                tail = node;
+                head = newNode;
+                tail = newNode;
 
                 return;
             }
 
-            if (Compare(head.value, node.value) == _order && head != null)
+            if (Compare(head.value, newNode.value) == leftGtRight && head != null)
             {
-                node.next = head;
-                head.prev = node;
+                newNode.next = head;
+                head.prev = newNode;
 
-                head = node;
+                head = newNode;
 
                 return;
             }
 
-            if (Compare(node.value, tail.value) == _order && tail != null)
+            if (Compare(newNode.value, tail.value) == leftGtRight && tail != null)
             {
-                node.prev = tail;
-                tail.next = node;
+                newNode.prev = tail;
+                tail.next = newNode;
 
-                tail = node;
+                tail = newNode;
 
                 return;
             }
 
-            Node<T> next = head;
-            while (next != null)
+            Node<T> nextNode = head;
+            while (nextNode != null)
             {
-                if (Compare(node.value, next.value) != - _order && (next.next == null || Compare(next.next.value, node.value) != - _order))
+                if (Compare(nextNode.value, newNode.value) != leftGtRight && (nextNode.next == null || Compare(newNode.value, nextNode.next.value) != leftGtRight))
                 {
-                    node.prev = next;
-                    node.next = next.next;
+                    newNode.prev = nextNode;
+                    newNode.next = nextNode.next;
                     
-                    next.next.prev = node;
-                    next.next = node;
+                    nextNode.next.prev = newNode;
+                    nextNode.next = newNode;
 
-                    if (next == tail)
+                    if (nextNode == tail)
                     {
-                        tail = node;
+                        tail = newNode;
                     }
 
                     break;
                 }
 
-                next = next.next;
+                nextNode = nextNode.next;
             }
 ;       }
 
@@ -115,20 +119,20 @@ namespace AlgorithmsDataStructures
             }
 
             /// NOTE [sg]: 5. skip connection
-            if (Compare(val, head.value) == - _order || Compare(tail.value, val) == - _order)
+            if (Compare(head.value, val) == leftGtRight || Compare(val, tail.value) == leftGtRight)
             {
                 return default;
             }
 
-            Node<T> find = head;
-            while (find != null)
+            Node<T> nextNode = head;
+            while (nextNode != null)
             {
-                if (Compare(val, find.value) == 0)
+                if (Compare(val, nextNode.value) == 0)
                 {
-                    return find;
+                    return nextNode;
                 }
 
-                find = find.next;
+                nextNode = nextNode.next;
             }
 
             return default;
@@ -136,27 +140,27 @@ namespace AlgorithmsDataStructures
 
         public void Delete(T val)
         {
-            Node<T> find = Find(val);
-            if (find != null)
+            Node<T> foundNode = Find(val);
+            if (foundNode != null)
             {
-                if (find.next != null && find.prev != null)
+                if (foundNode.next != null && foundNode.prev != null)
                 {
-                    find.next.prev = find.prev;
-                    find.prev.next = find.next;
+                    foundNode.next.prev = foundNode.prev;
+                    foundNode.prev.next = foundNode.next;
                 }
 
-                if (find.prev == null)
+                if (foundNode.prev == null)
                 {
-                    head = find.next;
+                    head = foundNode.next;
 
-                    if (find.next != null) find.next.prev = null;
+                    if (foundNode.next != null) foundNode.next.prev = null;
                 }
 
-                if (find.next == null)
+                if (foundNode.next == null)
                 {
-                    tail = find.prev;
+                    tail = foundNode.prev;
 
-                    if (find.prev != null) find.prev.next = null;
+                    if (foundNode.prev != null) foundNode.prev.next = null;
                 }
             }
         }
@@ -166,19 +170,19 @@ namespace AlgorithmsDataStructures
             head = null;
             tail = null;
             
-            _ascending = asc;
-            _order = _ascending ? 1 : -1;
+            ascending = asc;
+            leftGtRight = ascending ? 1 : -1;
         }
 
         public int Count()
         {
             var count = 0;
-            Node<T> find = head;
-            while (find != null)
+            Node<T> nextNode = head;
+            while (nextNode != null)
             {
                 count++;
 
-                find = find.next;
+                nextNode = nextNode.next;
             }
 
             return count;
@@ -187,14 +191,14 @@ namespace AlgorithmsDataStructures
         public List<Node<T>> GetAll() // выдать все элементы упорядоченного 
                                // списка в виде стандартного списка
         {
-            List<Node<T>> r = new List<Node<T>>();
-            Node<T> node = head;
-            while (node != null)
+            List<Node<T>> nodes = new List<Node<T>>();
+            Node<T> nextNode = head;
+            while (nextNode != null)
             {
-                r.Add(node);
-                node = node.next;
+                nodes.Add(nextNode);
+                nextNode = nextNode.next;
             }
-            return r;
+            return nodes;
         }
     }
 
