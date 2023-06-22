@@ -1,0 +1,36 @@
+﻿1. В трейдинговом домене есть понятие о совершенной сделке (trade, tick и т.д.) в рус языке сделки, тики, трейды.
+В рабочем приложении используется сущность Tick, но во всем коде в перемеку используются Trade, AggTrade, Tick
+
+Классы и интерфесы
+ITick - ITrade
+Tick - Trade
+
+Методы
+SubscribeTrades()		- SubscribeTrades()
+UnSubscribeTrades()		- UnSubscribeTrades()
+
+
+2. Убираем лишний шум из названий
+
+Классы
+
+SpotMarketDataLiveProvider		- SpotMarketData
+FuturesMarketDataLiveProvider	- FuturesMarketData
+FutCoinMarketDataLiveProvider	- FutCoinMarketData
+BinanceBookTickerLiveService	- BinanceBookTickers
+SpotTickerLiveService			- BinanceSpotTickers
+SpotOrderBookLiveService		- BinanceSpotOrderBooks
+BinanceTickLiveService			- BinanceTrades
+BinanceOrderBookSnapshotService - BinanceOrderBookSnapshots
+FuturesTickerLiveService		- BinanceFuturesTickers
+FuturesOrderBookLiveService		- BinanceFuturesOrderBooks
+
+Методы
+OpenStream()	- Connect()
+CloseStream()	- Disconnect()
+Unplug()		- Disconnect()
+
+
+3. Убираем пустые термины из названия
+BinanceMarketClient		- BinanceClient (другого client для бинанса не будет, только для работы на market)
+BinanceClient			- BinanceSpotClient, BinanceFuturesClient, BinanceFutCoinClient (на самом деле "общего" клиента нет, на какждом сегменте рынка свой API)
