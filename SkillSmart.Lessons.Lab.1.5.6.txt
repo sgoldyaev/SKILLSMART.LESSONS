@@ -1,0 +1,27 @@
+﻿1. Продолжение 1.5.5
+
+Методы подписки на низкоуровневые топивки в вебсокете нужно заменить на BL транзакции 
+	(подписка на данные для Котировок, Стакана, Позиции), там где данные из этих топиков нужны
+	Аналогично и для отписки на эти топики.
+
+SubscribeTicker			- SubscribeForWatchlist
+SubscribeBookTicker		- SubscribeForWatchlist
+SubscribeMarketPrice	- SubscribeForWatchlist
+
+SubscribeOrderBook		- SubscribeForDom
+SubscribeTrades			- SubscribeForDom
+
+SubscribeMarketPrice	- SubscribeForPositions
+SubscribeBookTicker		- SubscribeForPositions
+
+CreateSubscribeRequest	- CreateSubscribtion
+OnMessage				- OnReceiveMessage
+
+
+
+2. Получение специализированных данных для отоборажение о торговли
+GetDeals				- GetUserDeals
+OpenOrders				- GetActiveOrders
+CancelAnOrder			- CancelOrder
+PlaceOrder				- MakeOrder
+GetList					- GetActivePositions
