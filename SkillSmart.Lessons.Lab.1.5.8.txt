@@ -1,0 +1,34 @@
+﻿1. В разных сервисах исползуются невыраительные имена для констант url:
+
+QueryString - PING_URL            // для BinancePingService.QueryString = "/ping"
+QueryString - EXCHANGE_INFO_URL   // для BinanceExchangeInfoService.QueryString = "/echangeInfo"
+QueryString - SERVER_TIME_URL     // для BinanceTimeService.QueryString = "/time"
+
+
+2. Для подписки на данные от бинанса, введены константы топиков для веб сокетов. ОБъеденены в один класс
+
+public class BinanceTopics
+{
+  public const string DEPTH_TOPIC        = "@depth@100ms";
+  public const string TICKER_TOPIC       = "@ticker";
+  public const string AGG_TRADE_TOPIC    = "@aggTrade";
+  public const string MARK_PRICE_TOPIC   = "@markPrice";
+  public const string BOOK_TICKER_TOPIC  = "@bookTicker";
+}
+
+
+3. Константы для работы с получением стакана (DOM) от бинанса
+
+LEVELS_LIMIT      - PRICE_LEVELS_LIMIT
+REQUEST_TIMEOUT   - REQUESTS_TIMEOUT
+
+
+4. Константы для работы с получением истории по сделкам от бинанса
+
+LIMITS            - AGG_TRADES_LIMIT
+
+
+5. Константы для retry и rait limiiter
+
+REQUEST_TIMEOUT   - REQUESTS_TIMEOUT_SEC  // добавлен суффикс _SEC
+RETRIES_COUNT     - REQUESTS_LIMIT        // максимально кол-во попыток на отправку запроса
