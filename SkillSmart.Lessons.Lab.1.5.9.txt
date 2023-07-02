@@ -1,0 +1,39 @@
+﻿1. https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab12/NativeCache.cs
+
+используются логические переменные
+
+private int Search(string value, Func<string, bool> filter)
+
+    var seekIndex = (slotIndex + startIndex + index) % size;
+    var isTail = startIndex + 1 == size && seekIndex == slotIndex - 1;
+    var isFound = filter(slots[seekIndex]);
+
+    if (isFound) return seekIndex;
+    if (isTail && !isFound) return -1;
+
+
+2. https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab3/DynArray.cs
+
+Здесь выражение count < 0.5 * capacity подразумевающее плавающую точку, заменено на работу с целочисленными типами
+
+public void Remove(int index)
+
+    if (count * 2 < capacity)
+
+
+3. https://github.com/sgoldyaev/SKILLSMART.LESSONS/blob/main/SkillSmart.Lessons.Lab7/OrderedList.cs
+Здесь введены логические переменные для наглядности
+
+public void Add(T value)
+
+    var isLThead = Compare(head.value, newNode.value) == leftGtRight;
+    if (isLThead)
+
+    var isGTtail = Compare(newNode.value, tail.value) == leftGtRight;
+    if (isGTtail)
+
+    var isGTEnext = Compare(nextNode.value, newNode.value) != leftGtRight;
+    var isLTEafterNext = Compare(newNode.value, nextNode.next.value) != leftGtRight;
+    var isTail = nextNode.next == null;
+                
+    if (isGTEnext && (isTail || isLTEafterNext))

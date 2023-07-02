@@ -68,7 +68,9 @@ namespace AlgorithmsDataStructures
                 return;
             }
 
-            if (Compare(head.value, newNode.value) == leftGtRight && head != null)
+            var isLThead = Compare(head.value, newNode.value) == leftGtRight;
+
+            if (isLThead)
             {
                 newNode.next = head;
                 head.prev = newNode;
@@ -78,7 +80,9 @@ namespace AlgorithmsDataStructures
                 return;
             }
 
-            if (Compare(newNode.value, tail.value) == leftGtRight && tail != null)
+            var isGTtail = Compare(newNode.value, tail.value) == leftGtRight;
+
+            if (isGTtail)
             {
                 newNode.prev = tail;
                 tail.next = newNode;
@@ -91,7 +95,11 @@ namespace AlgorithmsDataStructures
             Node<T> nextNode = head;
             while (nextNode != null)
             {
-                if (Compare(nextNode.value, newNode.value) != leftGtRight && (nextNode.next == null || Compare(newNode.value, nextNode.next.value) != leftGtRight))
+                var isGTEnext = Compare(nextNode.value, newNode.value) != leftGtRight;
+                var isLTEafterNext = Compare(newNode.value, nextNode.next.value) != leftGtRight;
+                var isTail = nextNode.next == null;
+                
+                if (isGTEnext && (isTail || isLTEafterNext))
                 {
                     newNode.prev = nextNode;
                     newNode.next = nextNode.next;
