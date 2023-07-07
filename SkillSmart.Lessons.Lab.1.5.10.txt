@@ -1,0 +1,44 @@
+﻿https://github.com/sgoldyaev/WebSocket.Example/blob/master/WebSocket.Example/TPLEventsRecycleStream/WebSocketClient.cs
+
+/// Это запуск цикла обработки сообщение из WebSocket, здесь меняется статус WebSocket.State
+/// в прикадном коде нужно получить уведомление о реальном изменнии состояния OnOpened, OnClosed
+/// поэтому генерация событий выполняется в этом же цикле
+protected virtual Command ReceivingCommand(CancellationToken cancellation)
+
+2. Наглядное объявление переменной
+
+/// Это начальные состояния переменных, они нам подходят если цикл даже не запустится
+var reason = CloseReason.Client;
+WebSocketCloseStatus? status = default;
+string? statusDescription = default;
+
+/// вынесли объявление буффера за цикл, он будет использоваться на каждой итерации цикла
+/// повторное использование буфера дает заметный выигрыш в утилизации RAM и GC
+var memory = System.Net.WebSockets.WebSocket.CreateClientBuffer(RECEIVE_BUFFER_BYTES, SEND_BUFFER_BYTES);
+
+/// А вот stream нужен на каждой итерации новый, туда будет записано содержимое сообщения
+/// А что бы не делать лишнюю проверку на null используем Null Object при объявлении
+Stream stream = Stream.Null;
+
+/// Прикладной код нужно уведомить об откртые сокета (именно тогда в сокет можно начинать кидать команды)
+/// и нужно уведомоить вызывающий код об этом, 
+/// Т.к. имеется цикл чтения, то удобно кинуть OnOpen на самой первой итерации
+/// сделать это можно без явной стейт машины
+
+объявлям переменную и копируем ссылку на событие OnOpen
+var onOpen = OnOpen;
+
+/// Далее, когда заходим в цикл обработки по условию socket?.State == WebSocketState.Open
+while (socket?.State == WebSocketState.Open || socket?.State == WebSocketState.CloseSent)
+
+/// бросаем событие
+onOpen?.Invoke(this);
+
+/// и сразу же его зануляем, и т.о. на след. итерации оно просто не вызыается. Без программирования с if или FSM
+onOpen = null;
+
+5. Добавлены Guard
+
+Guard.IsNotNull(url);
+Guard.IsNotEmpty(buffer);
+Guard.IsNotNullOrEmpty(request);
